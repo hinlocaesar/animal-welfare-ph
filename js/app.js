@@ -203,9 +203,9 @@
 
   /* ---------- Rendering ---------- */
   function buildCard(org, index) {
-    var entry = el('article', 'entry');
+    var entry = el('article', 'entry cat-' + org.category);
     entry.setAttribute('data-id', org.id);
-    entry.style.animationDelay = Math.min(index * 22, 340) + 'ms';
+    if (org.photo && org.photo.large) entry.setAttribute('data-photo', org.photo.large);
 
     /* running number down the left rail */
     var no = el('span', 'entry-no', String(index + 1).length < 2
@@ -309,6 +309,11 @@
     var isEmpty = list.length === 0;
     emptyState.hidden = !isEmpty;
     grid.hidden = isEmpty;
+
+    /* let the motion layer animate freshly rendered rows */
+    try {
+      document.dispatchEvent(new CustomEvent('ph:render'));
+    } catch (e) { /* CustomEvent is old news, but never hurt to check */ }
   }
 
   function updateCount(n) {
@@ -609,7 +614,12 @@
       if (!target) return;
       e.preventDefault();
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (window.__lenis) {
+        /* Lenis owns scrolling — hand the job to it */
+        window.__lenis.scrollTo(target, { offset: -84, duration: 1.15 });
+      } else {
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }
       target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
       closeNav();

@@ -19,7 +19,10 @@ JSON file is blocked by browsers on `file://`.
 ```
 index.html
 ├── css/styles.css
-├── js/app.js
+├── js/app.js            ← rendering, filtering, URL sync, detail dialog
+├── js/motion.js         ← animation layer (progressive enhancement)
+├── js/vendor/           ← GSAP, ScrollTrigger and Lenis, vendored locally
+├── img/                 ← organization photos (local, see Photos)
 ├── data/organizations.js   ← loaded by <script> (window.ORGANIZATIONS)
 ├── data/organizations.json ← identical copy, for reference/tooling
 ├── data/SOURCES.md         ← every source used to verify a listing
@@ -161,30 +164,52 @@ Facebook page nor a website, so there was no official image to source.
 
 ## Design notes
 
-The site is laid out like a **printed civic directory**: a nameplate and dateline, a lead
-story with a contents list and a tally table, then the listings as a numbered index with
-hairline rules — no cards, no gradients, no decorative shapes.
+The site is designed as a **warm, cinematic night page with a playful streak**: a full-bleed
+photograph of real volunteers behind the headline, a pile of tilted photo cards with tape
+strips, a scrolling ticker of regions and animals, and colour-coded dots on every listing.
 
-- **Palette** — newsprint paper (`#F5F2EA`), near-black ink, one forest-green accent
-  (`#0B4A34`) and a brick stamp colour used for section rails. All defined as CSS custom
-  properties in `css/styles.css` under `:root`, and tuned to meet WCAG AA contrast.
-- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces) for headlines and
-  listing titles, [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for body
-  text, and [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) for labels,
-  counts and captions, loaded from Google Fonts with full system-font fallbacks so the site
-  still renders offline.
-- **Layout** — numbered rows (01–43) rather than a card grid, borders and rules instead of
-  shadows, square corners throughout, and tabular figures in the tally table and row numbers.
-- **Illustrations** — every icon and the favicon are inline SVG (an ink square with a cream
-  paw). The only raster assets are the organization photos in `img/` (see **Photos** above),
-  all stored locally, so the site still renders fully offline with **no external image
-  requests**.
-- **Motion** — deliberately restrained: a short row fade-in when the index renders, a hover
-  tint on rows and contents lines, and the dialog sheet transition. All of it is disabled
-  under `prefers-reduced-motion: reduce`.
-- **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled
-  form controls, `aria-live` result counts, a native `<dialog>` with focus handling,
-  and full keyboard operation.
+- **Palette** — warm charcoal (`#121110`), cream text (`#F7F2E8`), one gold accent
+  (`#FFC24D`) for headings, links, buttons and the scroll rail, with coral, mint, sky and
+  lilac used *only* as category codes (dogs & cats, farm, marine, wildlife, drives).
+  Everything is a CSS custom property under `:root` in `css/styles.css`, and every
+  text/background pair was tuned for WCAG AA — Lighthouse accessibility scores **100**.
+- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces) as a variable font
+  with its `SOFT` and `WONK` axes enabled, so display headings carry a slightly wonky,
+  friendly personality and italic accent words (`animals`, `responsibly`) turn gold;
+  [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for body text and
+  [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) for labels, counts and
+  captions, loaded from Google Fonts with system fallbacks so the site still renders offline.
+- **Layout** — full-height hero with a copy/photo-stack split, a masked ticker band, then the
+  43 listings as numbered rows (01–43) with hairline rules, thumbnails and colour-coded tags
+  rather than a grid of identical cards. A two-column responsible-volunteering list, a plate
+  strip of photographs, an about panel and a colophon footer follow.
+- **Photography and illustrations** — every icon and the favicon are inline SVG (gold paw on
+  a charcoal tile). The only raster assets are the organization photos in `img/` (see
+  **Photos** above), stored locally, so the site makes **no external image requests**.
+- **Motion** — scroll-linked and playful rather than decorative: a word-by-word headline
+  reveal, slow hero parallax, a pointer tilt on the photo pile, staggered section reveals,
+  counting statistics, the ticker, and a polaroid that trails the cursor while you hover the
+  index. Everything lives in `js/motion.js` and is skipped entirely under
+  `prefers-reduced-motion: reduce`.
+- **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled form
+  controls, `aria-live` result counts, a native `<dialog>` with focus handling, and full
+  keyboard operation.
+
+## Libraries
+
+There is still no build step: three small animation libraries are **vendored** under
+`js/vendor/` and loaded with plain `<script>` tags, so the page works from `file://` and
+offline forever, with no CDN dependency.
+
+| File | Project | Licence |
+| --- | --- | --- |
+| `js/vendor/gsap.min.js` | [GSAP](https://gsap.com/) | GreenSock standard licence (free for this use) |
+| `js/vendor/ScrollTrigger.min.js` | [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) | GreenSock standard licence |
+| `js/vendor/lenis.min.js` | [Lenis](https://darkroom.engineering/lenis/) | MIT |
+
+`js/motion.js` checks for all three before touching anything: if a file is missing, the
+animation code never runs and the page renders as a complete, static document. To upgrade,
+drop a newer build over the same filename.
 
 ## Features
 
