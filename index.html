@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paws &amp; Hearts PH — Animal Volunteer Opportunities in the Philippines</title>
+<meta name="description" content="A curated, hand-verified directory of shelters, rescues, sanctuaries and conservation programs across Luzon, Visayas and Mindanao where you can volunteer to help animals.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0E4F4A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#directory">Skip to the directory</a>
+
+<!-- ======================= ICON SPRITE (inline SVG, no external images) ======================= -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- paw print -->
+    <symbol id="i-paw" viewBox="0 0 64 64">
+      <ellipse cx="20" cy="17" rx="7" ry="9.5" transform="rotate(-16 20 17)"/>
+      <ellipse cx="44" cy="17" rx="7" ry="9.5" transform="rotate(16 44 17)"/>
+      <ellipse cx="9" cy="34" rx="6.2" ry="8" transform="rotate(-30 9 34)"/>
+      <ellipse cx="55" cy="34" rx="6.2" ry="8" transform="rotate(30 55 34)"/>
+      <path d="M32 30c8.6 0 16.6 6.4 16.6 14.6 0 6.4-5.2 10.4-11.4 10.4-2.6 0-3.9-1-5.2-1s-2.6 1-5.2 1c-6.2 0-11.4-4-11.4-10.4C15.4 36.4 23.4 30 32 30z"/>
+    </symbol>
+    <!-- dog &amp; cat / companion animals -->
+    <symbol id="i-dogs-cats" viewBox="0 0 64 64">
+      <path d="M14 24c0-6 3.6-11 8-11s8 5 8 11v4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M34 24c0-6 3.6-11 8-11s8 5 8 11v4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M32 26c9 0 17 7.6 17 17.5S41.4 58 32 58s-17-7.6-17-14.5S23 26 32 26z"/>
+      <circle cx="25.5" cy="40" r="2.8" fill="#fff"/>
+      <circle cx="38.5" cy="40" r="2.8" fill="#fff"/>
+      <path d="M28.5 48.5c1.9 2 5.1 2 7 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <!-- wildlife: leaf + bird -->
+    <symbol id="i-wildlife" viewBox="0 0 64 64">
+      <path d="M54 10C30 10 14 20 14 38c0 5 1.7 9.4 4.6 12.6C21.6 40 30.5 31 42 27c-9.7 7.3-16 17.4-18.4 29.4C34.4 57.6 54 51 54 10z"/>
+    </symbol>
+    <!-- marine: wave -->
+    <symbol id="i-marine" viewBox="0 0 64 64">
+      <path d="M6 26c5.3 0 5.3 5 10.7 5s5.3-5 10.6-5 5.4 5 10.7 5 5.3-5 10.7-5 5.3 5 10.6 5" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      <path d="M6 41c5.3 0 5.3 5 10.7 5s5.3-5 10.6-5 5.4 5 10.7 5 5.3-5 10.7-5 5.3 5 10.6 5" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      <path d="M32 6c4 5.5 8 8.5 14 9-4.5 3.5-7 7.5-8 13-3.5-4.5-7.5-7-13-7.5 3-3.5 5-7.5 5-12.5" fill="currentColor"/>
+    </symbol>
+    <!-- farm: barn -->
+    <symbol id="i-farm" viewBox="0 0 64 64">
+      <path d="M6 26 32 10l26 16v28a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V26z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M24 57V37h16v20" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M32 37v20M24 47h16" fill="none" stroke="currentColor" stroke-width="4"/>
+    </symbol>
+    <!-- drives: syringe / care -->
+    <symbol id="i-drives" viewBox="0 0 64 64">
+      <path d="M37 8 56 27M45 16 30 31" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M32 26 12 46l6 6 20-20z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M20 34l6 6M26 28l6 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M10 44l4 4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <!-- mixed: hearts + paw -->
+    <symbol id="i-mixed" viewBox="0 0 64 64">
+      <path d="M32 56S8 42 8 26.5C8 18.5 14 13 21 13c4.6 0 8.6 2.3 11 6 2.4-3.7 6.4-6 11-6 7 0 13 5.5 13 13.5C56 42 32 56 32 56z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+      <use href="#i-paw" x="21" y="22" width="22" height="22" opacity=".95"/>
+    </symbol>
+    <!-- arrow -->
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h13M12 5.5 18.5 12 12 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- search -->
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <!-- globe -->
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3.4 12h17.2M12 3.4c2.6 2.6 3.9 5.5 3.9 8.6s-1.3 6-3.9 8.6c-2.6-2.6-3.9-5.5-3.9-8.6s1.3-6 3.9-8.6z" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <!-- facebook -->
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M13.5 21v-8h2.7l.5-3.2h-3.2V7.7c0-.9.3-1.6 1.7-1.6h1.6V3.2C16.4 3.1 15.4 3 14.3 3c-2.5 0-4.2 1.5-4.2 4.3v2.5H7.4V13h2.7v8z" fill="currentColor"/>
+    </symbol>
+    <!-- mail -->
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5.5" width="18" height="13" rx="2.4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- pin -->
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 21.5s7-6.3 7-11.4A7 7 0 0 0 5 10.1c0 5.1 7 11.4 7 11.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <!-- close -->
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="m6.5 6.5 11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <!-- check -->
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- handshake / join -->
+    <symbol id="i-join" viewBox="0 0 24 24">
+      <path d="M3 9.5 8 5l4 2.5L16 5l5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.5 12.5 10 16l2.5-2.5L15 16l3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" data-scroll>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="34" height="34"><use href="#i-paw"/></svg>
+      </span>
+      <span class="brand-text">Paws &amp; Hearts <em>PH</em></span>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#directory" data-scroll>Directory</a></li>
+        <li><a href="#how-to" data-scroll>Volunteer responsibly</a></li>
+        <li><a href="#about" data-scroll>About the data</a></li>
+        <li><a class="btn btn-small btn-coral" href="#directory" data-scroll>Find a place to help</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-paw"/></svg> A hand-checked directory for animal lovers</p>
+        <h1 id="hero-title">Somewhere near you, an animal is <span class="hl">waiting for a volunteer</span>.</h1>
+        <p class="lede">
+          Paws &amp; Hearts PH gathers shelters, rescues, sanctuaries and conservation programs
+          across Luzon, Visayas and Mindanao — so you can stop searching and start helping.
+          Every listing was verified against a real source before it went up.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-coral btn-lg" href="#directory" data-scroll>
+            Find a place to help
+            <svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#how-to" data-scroll>How to volunteer responsibly</a>
+        </div>
+
+        <dl class="hero-stats" id="hero-stats">
+          <div><dt id="stat-total">—</dt><dd>verified listings</dd></div>
+          <div><dt id="stat-regions">3</dt><dd>island regions</dd></div>
+          <div><dt id="stat-cats">—</dt><dd>kinds of work</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-card art-card-back">
+          <svg viewBox="0 0 64 64" width="52" height="52"><use href="#i-marine"/></svg>
+          <span>Marine rescue</span>
+        </div>
+        <div class="art-card art-card-mid">
+          <svg viewBox="0 0 64 64" width="52" height="52"><use href="#i-wildlife"/></svg>
+          <span>Wildlife care</span>
+        </div>
+        <div class="art-card art-card-front">
+          <div class="art-paw">
+            <svg viewBox="0 0 64 64" width="86" height="86"><use href="#i-paw"/></svg>
+          </div>
+          <p class="art-title">Luzon · Visayas · Mindanao</p>
+          <p class="art-sub">Shelter days, beach patrols, vaccination drives and everything in between.</p>
+          <div class="art-tags">
+            <span class="tag">Dogs &amp; cats</span>
+            <span class="tag">Wildlife</span>
+            <span class="tag">Marine</span>
+            <span class="tag">Farm</span>
+            <span class="tag">Drives</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paw-track" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="walker"><use href="#i-paw"/></svg>
+    </div>
+  </section>
+
+  <!-- ======================= DIRECTORY ======================= -->
+  <section class="section directory" id="directory" aria-labelledby="directory-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg> The directory</p>
+        <h2 id="directory-title">Find your people, pick your work</h2>
+        <p class="section-sub">
+          Search by name or city, then narrow by region, kind of organization, and the animals you want to help.
+        </p>
+      </header>
+
+      <form class="filters" id="filters" role="search" aria-label="Filter organizations">
+        <div class="field field-search">
+          <label for="q">Search</label>
+          <div class="input-wrap">
+            <svg class="ico input-ico" width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>
+            <input type="search" id="q" name="q" placeholder="Try “Cebu”, “turtles”, “spay/neuter”…" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="region">Region</label>
+          <select id="region" name="region">
+            <option value="">All regions</option>
+            <option value="Luzon">Luzon</option>
+            <option value="Visayas">Visayas</option>
+            <option value="Mindanao">Mindanao</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="category">Organization type</label>
+          <select id="category" name="category">
+            <option value="">All types</option>
+            <option value="dogs-cats">Dogs &amp; cats</option>
+            <option value="wildlife">Wildlife</option>
+            <option value="marine">Marine</option>
+            <option value="farm">Farm animals</option>
+            <option value="drives">Drives &amp; clinics</option>
+            <option value="mixed">Mixed / community</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="animals">Animals</label>
+          <select id="animals" name="animals">
+            <option value="">All animals</option>
+          </select>
+        </div>
+
+        <div class="field field-reset">
+          <button type="button" class="btn btn-quiet" id="reset-filters">Clear filters</button>
+        </div>
+      </form>
+
+      <p class="result-count" id="result-count" role="status" aria-live="polite">Loading listings…</p>
+
+      <div class="card-grid" id="card-grid"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="72" height="72"><use href="#i-paw"/></svg>
+        </div>
+        <h3>No matches — yet</h3>
+        <p>Try a broader search, or clear your filters to see every listing again.</p>
+        <button type="button" class="btn btn-teal" id="empty-reset">Show all listings</button>
+      </div>
+
+      <noscript>
+        <p class="noscript-note">
+          This directory needs JavaScript to render its listings. Please enable JavaScript,
+          or browse the raw data in <a href="data/organizations.json">data/organizations.json</a>.
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ======================= HOW TO ======================= -->
+  <section class="section how-to" id="how-to" aria-labelledby="howto-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg> Before you go</p>
+        <h2 id="howto-title">How to volunteer responsibly</h2>
+        <p class="section-sub">
+          A little care makes you a better volunteer — and makes life easier for the people and animals already there.
+        </p>
+      </header>
+
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">1</span>
+          <h3>Visit first, commit second</h3>
+          <p>Ask for an orientation and a trial day before promising anything recurring. Shelters would rather you show up steadily once a month than burn out in a fortnight.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">2</span>
+          <h3>Ask about the commitment</h3>
+          <p>Clarify hours, minimum tenure, deposits, and whether pre-exposure rabies shots are needed for direct animal care. Know the expectations before you say yes.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">3</span>
+          <h3>Skip wildlife tourism that exploits animals</h3>
+          <p>Avoid venues that let tourists hold, ride, selfie with or performances involving wild animals. Ask instead how your fee or time supports genuine rescue and rehabilitation.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">4</span>
+          <h3>Keep a respectful distance</h3>
+          <p>Follow the keepers' lead around wild and rescued animals: no flash photography, no reaching into enclosures, and never feed an animal without clearance.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">5</span>
+          <h3>Bring skills, not just enthusiasm</h3>
+          <p>Photography, transport, spreadsheets, welding, fundraising, translation and weekend driving are all genuinely short on. Say what you're good at when you apply.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num" aria-hidden="true">6</span>
+          <h3>Adopt, foster, or donate — not just visit</h3>
+          <p>If you can't give time, fostering an animal or covering a vet bill is often worth more than a single afternoon. Every organization below accepts more than one kind of help.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ======================= ABOUT ======================= -->
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="wrap about-inner">
+      <div>
+        <p class="eyebrow"><svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-globe"/></svg> About the data</p>
+        <h2 id="about-title">Curated by hand, checked by source</h2>
+        <p>
+          Every organization in this directory was found through public web research and confirmed against an
+          official website, official Facebook page, or another primary source — listed on each card as
+          <em>source</em>. Fields we could not verify are left blank or <code>null</code> rather than guessed.
+        </p>
+        <p>
+          Listings change: pages get taken down, programs pause, email addresses go stale. Please confirm
+          details directly with the organization before you travel or commit your time.
+        </p>
+        <p class="about-links">
+          <a class="btn btn-teal" href="data/SOURCES.md">See every source</a>
+          <a class="btn btn-ghost-dark" href="data/organizations.json">Browse raw JSON</a>
+        </p>
+      </div>
+      <div class="about-panel">
+        <h3>What's in a listing</h3>
+        <ul class="checklist">
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> Where it is — region, city, province</li>
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> What animals it works with</li>
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> Real volunteer activities</li>
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> How to actually join</li>
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> Requirements and contact links</li>
+          <li><svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg> A source URL and a verification date</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark brand-mark-light" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="30" height="30"><use href="#i-paw"/></svg>
+      </span>
+      <p class="footer-name">Paws &amp; Hearts PH</p>
+      <p class="footer-tag">A volunteer directory for animals in the Philippines.</p>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-h">Data</h2>
+      <ul>
+        <li><a href="data/organizations.json">organizations.json</a></li>
+        <li><a href="data/organizations.js">organizations.js</a></li>
+        <li><a href="data/SOURCES.md">SOURCES.md</a></li>
+        <li><a href="README.md">README</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-h">Jump to</h2>
+      <ul>
+        <li><a href="#directory" data-scroll>Directory</a></li>
+        <li><a href="#how-to" data-scroll>Volunteer responsibly</a></li>
+        <li><a href="#about" data-scroll>About the data</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-note">
+      <h2 class="footer-h">Please note</h2>
+      <p>
+        Listings are collected from public sources and were last checked on
+        <strong id="footer-updated">—</strong>. This is an independent directory and is not affiliated with,
+        or endorsed by, any organization listed. <strong>Always confirm opportunities directly with each
+        organization</strong> before visiting, donating or committing your time.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="wrap">
+      <p>Made with warm hearts for Philippine animals. Illustrations are inline SVG — no photos of real animals were harmed.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= DETAIL DIALOG ======================= -->
+<dialog class="org-dialog" id="org-dialog" aria-labelledby="dialog-title">
+  <div class="dialog-shell">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">
+      <svg class="ico" width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="dialog-body" id="dialog-body"></div>
+  </div>
+</dialog>
+
+<script src="data/organizations.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
