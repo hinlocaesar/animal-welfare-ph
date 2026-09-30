@@ -79,9 +79,20 @@ do not add it. Never invent a name, URL, email address or phone number.
   "facebook": "https://www.facebook.com/example",
   "email": null,
   "source_url": "https://example.org/about",
-  "last_verified": "2026-09-30"
+  "last_verified": "2026-09-30",
+  "photo": {
+    "thumb": "img/my-organization-slug.jpg",
+    "large": "img/my-organization-slug-lg.jpg",
+    "width": 960,
+    "height": 540,
+    "credit_url": "https://www.facebook.com/example",
+    "credit_label": "Official Facebook page"
+  }
 }
 ```
+
+`photo` is optional — use `null` when the organization has no image you can legitimately
+use, and the card falls back to its category icon.
 
 **Field rules**
 
@@ -95,6 +106,7 @@ do not add it. Never invent a name, URL, email address or phone number.
 | `website` / `facebook` | a real `https://` URL, or `""` if unknown |
 | `source_url` | **required** — the URL where you verified the entry |
 | `last_verified` | `YYYY-MM-DD` |
+| `photo` | an object with `thumb`, `large`, `width`, `height`, `credit_url`, `credit_label` — or `null` |
 
 Unknown fields should be `null` (email) or `""` (other strings) rather than fabricated.
 Any field that is not a usable `https://` link is simply not rendered as a button by the UI.
@@ -120,6 +132,33 @@ and the detail dialog opens.
 
 ---
 
+## Photos
+
+Every listing that shows a photo uses an **official image from that organization's own
+Facebook page or website** — profile photos, cover photos, or the site's `og:image`.
+They were downloaded once, resized, and are served from `img/` so nothing is hotlinked:
+
+| File | Size | Used for |
+| --- | --- | --- |
+| `img/<id>.jpg` | 400 × 400 square | directory card thumbnail |
+| `img/<id>-lg.jpg` | max 1200 px wide | detail dialog, hero, tips strip |
+| `img/photos.json` | — | machine-readable index of what came from where |
+
+**Attribution.** Each photo is credited where it appears (dialog caption, tips strip,
+about panel) and links back to the page it came from. Photos remain © their owners and
+can be removed on request — delete the two files for that `id`, set `"photo": null` in
+`data/organizations.json` + `data/organizations.js`, and the UI falls back to the SVG
+category icon with no other change.
+
+**Replacing a photo:** drop a better image over `img/<id>.jpg` / `img/<id>-lg.jpg` and
+update `width`/`height` in the entry. Keep `width` and `height` accurate — they prevent
+layout shift while the image loads.
+
+**One listing has no photo:** `moalboal-animal-welfare-organization` has neither a
+Facebook page nor a website, so there was no official image to source.
+
+---
+
 ## Design notes
 
 - **Palette** — warm cream background, deep teal, coral and sunny yellow accents, all
@@ -129,7 +168,8 @@ and the detail dialog opens.
   [Nunito](https://fonts.google.com/specimen/Nunito) for body, loaded from Google Fonts
   with full system-font fallbacks so the site still renders offline.
 - **Illustrations** — every icon, the paw-print favicon, and the dividers are inline SVG.
-  There are **no external images** anywhere.
+  The only raster assets are the organization photos in `img/` (see **Photos** below), all
+  stored locally, so the site still renders fully offline with **no external image requests**.
 - **Motion** — card hover lift, a wagging brand mark, a bouncing paw, and a walking paw
   divider. All of it is disabled under `prefers-reduced-motion: reduce`.
 - **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled

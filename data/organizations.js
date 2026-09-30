@@ -1,5 +1,4 @@
-// Generated from data/organizations.json — keep both files identical.
-// Loaded with a plain <script> tag so the site works from file:// (no fetch).
+/* Generated from data/organizations.json — keep both files in sync. */
 window.ORGANIZATIONS = [
   {
     "id": "capwa-up",
@@ -25,7 +24,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/CAPWAUP",
     "email": null,
     "source_url": "https://www.tayomismo.ph/student-led-groups-are-creating-safer-campuses-for-community-animals/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/capwa-up.jpg",
+      "large": "img/capwa-up-lg.jpg",
+      "width": 960,
+      "height": 365,
+      "credit_url": "https://www.facebook.com/CAPWAUP",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "coron-animal-savers",
@@ -53,7 +60,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/61564838199573",
     "email": null,
     "source_url": "https://www.coronanimalsavers.com/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/coron-animal-savers.jpg",
+      "large": "img/coron-animal-savers-lg.jpg",
+      "width": 960,
+      "height": 461,
+      "credit_url": "https://www.facebook.com/61564838199573",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "dlsu-pusa",
@@ -78,7 +93,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/groups/DLSUPUSA/",
     "email": null,
     "source_url": "https://lifestyle.inquirer.net/312048/dlsu-pusa-how-de-la-salle-looks-after-stray-cats/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/dlsu-pusa.jpg",
+      "large": "img/dlsu-pusa-lg.jpg",
+      "width": 800,
+      "height": 600,
+      "credit_url": "https://www.facebook.com/groups/DLSUPUSA/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "furvent-animal-rescue-and-advocacy",
@@ -105,7 +128,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/furventloveanimal/",
     "email": null,
     "source_url": "https://www.facebook.com/furventloveanimal/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/furvent-animal-rescue-and-advocacy.jpg",
+      "large": "img/furvent-animal-rescue-and-advocacy-lg.jpg",
+      "width": 720,
+      "height": 720,
+      "credit_url": "https://www.facebook.com/furventloveanimal/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "ivhq-animal-care-palawan",
@@ -131,7 +162,15 @@ window.ORGANIZATIONS = [
     "facebook": "",
     "email": null,
     "source_url": "https://www.volunteerhq.org/destinations/philippines/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/ivhq-animal-care-palawan.jpg",
+      "large": "img/ivhq-animal-care-palawan-lg.jpg",
+      "width": 850,
+      "height": 506,
+      "credit_url": "https://www.volunteerhq.org/destinations/philippines/animal-care-in-palawan/",
+      "credit_label": "Official website"
+    }
   },
   {
     "id": "pawssion-project-foundation",
@@ -159,7 +198,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/PAWSsionProject",
     "email": "events@pawssionproject.org",
     "source_url": "https://pawssionproject.org.ph/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/pawssion-project-foundation.jpg",
+      "large": "img/pawssion-project-foundation-lg.jpg",
+      "width": 960,
+      "height": 541,
+      "credit_url": "https://www.facebook.com/PAWSsionProject",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "wildlife-in-need-foundation",
@@ -193,7 +240,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/wildlifeinneedfoundation/",
     "email": null,
     "source_url": "https://wildlifeinneed.org/volunteers-interns/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/wildlife-in-need-foundation.jpg",
+      "large": "img/wildlife-in-need-foundation-lg.jpg",
+      "width": 960,
+      "height": 320,
+      "credit_url": "https://www.facebook.com/wildlifeinneedfoundation/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "bantay-pawikan-pawikan-conservation-center",
@@ -219,7 +274,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/BantayPawikanIncorporated",
     "email": "bantaypawikan101@gmail.com",
     "source_url": "https://www.facebook.com/BantayPawikanIncorporated",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/bantay-pawikan-pawikan-conservation-center.jpg",
+      "large": "img/bantay-pawikan-pawikan-conservation-center-lg.jpg",
+      "width": 960,
+      "height": 488,
+      "credit_url": "https://www.facebook.com/BantayPawikanIncorporated",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "lamave",
@@ -249,7 +312,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/lamaveresearch",
     "email": "info@lamave.org",
     "source_url": "https://www.lamave.org/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/lamave.jpg",
+      "large": "img/lamave-lg.jpg",
+      "width": 960,
+      "height": 576,
+      "credit_url": "https://www.facebook.com/lamaveresearch",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "philippine-animal-rescue-team",
@@ -280,7 +351,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/PhilAnimalRescueTeam/",
     "email": "support@phanimalrescueteam.info",
     "source_url": "https://phanimalrescueteam.info/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/philippine-animal-rescue-team.jpg",
+      "large": "img/philippine-animal-rescue-team-lg.jpg",
+      "width": 960,
+      "height": 400,
+      "credit_url": "https://www.facebook.com/PhilAnimalRescueTeam/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "dogs-mountain",
@@ -307,7 +386,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/dogsmountainsanctuary/",
     "email": "info@dogsmountain.org",
     "source_url": "https://dogsmountain.org/the-new-volunteer-programmed/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/dogs-mountain.jpg",
+      "large": "img/dogs-mountain-lg.jpg",
+      "width": 720,
+      "height": 720,
+      "credit_url": "https://www.facebook.com/dogsmountainsanctuary/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "animal-kingdom-foundation",
@@ -334,7 +421,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/AKFanimalrescue",
     "email": "hello@akfrescues.org",
     "source_url": "https://www.akfrescues.org/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/animal-kingdom-foundation.jpg",
+      "large": "img/animal-kingdom-foundation-lg.jpg",
+      "width": 960,
+      "height": 421,
+      "credit_url": "https://www.facebook.com/AKFanimalrescue",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "biyaya-animal-care",
@@ -361,7 +456,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/biyayaanimalcare",
     "email": "info@biyaya.ph",
     "source_url": "https://biyaya.ph/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/biyaya-animal-care.jpg",
+      "large": "img/biyaya-animal-care-lg.jpg",
+      "width": 960,
+      "height": 355,
+      "credit_url": "https://www.facebook.com/biyayaanimalcare",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "cara-welfare-philippines",
@@ -388,7 +491,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/CARAwelfareph",
     "email": "admin@caraphil.org",
     "source_url": "https://carawelfare.ph/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/cara-welfare-philippines.jpg",
+      "large": "img/cara-welfare-philippines-lg.jpg",
+      "width": 960,
+      "height": 541,
+      "credit_url": "https://www.facebook.com/CARAwelfareph",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "philippine-animal-welfare-society",
@@ -419,7 +530,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/pawsphilippines",
     "email": null,
     "source_url": "https://paws.org.ph/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/philippine-animal-welfare-society.jpg",
+      "large": "img/philippine-animal-welfare-society-lg.jpg",
+      "width": 820,
+      "height": 312,
+      "credit_url": "https://www.facebook.com/pawsphilippines",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "happy-animals-club-cebu",
@@ -445,7 +564,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/happy.animals.club.animal.shelter",
     "email": null,
     "source_url": "https://www.happyanimalsclub.org",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/happy-animals-club-cebu.jpg",
+      "large": "img/happy-animals-club-cebu-lg.jpg",
+      "width": 960,
+      "height": 439,
+      "credit_url": "https://www.facebook.com/happy.animals.club.animal.shelter",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "lyns-animal-rescue-siquijor",
@@ -472,7 +599,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/profile.php?id=100067379530385",
     "email": null,
     "source_url": "https://www.lynsanimalrescue.org/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/lyns-animal-rescue-siquijor.jpg",
+      "large": "img/lyns-animal-rescue-siquijor-lg.jpg",
+      "width": 720,
+      "height": 715,
+      "credit_url": "https://www.facebook.com/profile.php?id=100067379530385",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "mayari-animal-rescue-organization",
@@ -499,7 +634,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/mayarianimalrescue",
     "email": "mayarirescue@yahoo.com",
     "source_url": "https://mayarirescue.com/about-us",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/mayari-animal-rescue-organization.jpg",
+      "large": "img/mayari-animal-rescue-organization-lg.jpg",
+      "width": 960,
+      "height": 355,
+      "credit_url": "https://www.facebook.com/mayarianimalrescue",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "moalboal-animal-welfare-organization",
@@ -524,7 +667,8 @@ window.ORGANIZATIONS = [
     "facebook": "",
     "email": null,
     "source_url": "https://moalboalcebu.gov.ph/moalboals-animal-sanctuary-volunteering-rises-as-second-top-activity-on-tripadvisor",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": null
   },
   {
     "id": "ormoc-strays-oasis",
@@ -551,7 +695,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/ormocstraysoasis/",
     "email": "ormocstraysoasis@gmail.com",
     "source_url": "https://ormocstraysoasis.ph/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/ormoc-strays-oasis.jpg",
+      "large": "img/ormoc-strays-oasis-lg.jpg",
+      "width": 940,
+      "height": 348,
+      "credit_url": "https://www.facebook.com/ormocstraysoasis/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "pawssion-project-bacolod",
@@ -578,7 +730,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/PAWSsionProject",
     "email": null,
     "source_url": "https://pawssionproject.org.ph/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/pawssion-project-bacolod.jpg",
+      "large": "img/pawssion-project-bacolod-lg.jpg",
+      "width": 960,
+      "height": 541,
+      "credit_url": "https://www.facebook.com/PAWSsionProject",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "team-rescue-iloilo",
@@ -604,7 +764,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/teamrescue.ilo",
     "email": null,
     "source_url": "https://www.facebook.com/teamrescue.ilo",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/team-rescue-iloilo.jpg",
+      "large": "img/team-rescue-iloilo-lg.jpg",
+      "width": 960,
+      "height": 540,
+      "credit_url": "https://www.facebook.com/teamrescue.ilo",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "philippine-tarsier-foundation",
@@ -629,7 +797,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/tarsierfoundation",
     "email": null,
     "source_url": "http://www.tarsierfoundation.com/category/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/philippine-tarsier-foundation.jpg",
+      "large": "img/philippine-tarsier-foundation-lg.jpg",
+      "width": 940,
+      "height": 348,
+      "credit_url": "https://www.facebook.com/tarsierfoundation",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "balyena-org",
@@ -657,7 +833,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/balyena.org.ph",
     "email": "info@balyena.org.ph",
     "source_url": "https://balyena.org.ph/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/balyena-org.jpg",
+      "large": "img/balyena-org-lg.jpg",
+      "width": 960,
+      "height": 720,
+      "credit_url": "https://www.facebook.com/balyena.org.ph",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "marine-conservation-philippines",
@@ -684,7 +868,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/marineconservationphilippines",
     "email": "team@mcp.email",
     "source_url": "https://marineconservationphilippines.org/faq",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/marine-conservation-philippines.jpg",
+      "large": "img/marine-conservation-philippines-lg.jpg",
+      "width": 960,
+      "height": 640,
+      "credit_url": "https://www.facebook.com/marineconservationphilippines",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "people-and-the-sea",
@@ -711,7 +903,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/peopleandthesea/",
     "email": null,
     "source_url": "https://www.peopleandthesea.org",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/people-and-the-sea.jpg",
+      "large": "img/people-and-the-sea-lg.jpg",
+      "width": 960,
+      "height": 640,
+      "credit_url": "https://www.facebook.com/peopleandthesea/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "aarrc-aklan",
@@ -739,7 +939,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/aarrcanimalrescue",
     "email": "aklananimalrescue@gmail.com",
     "source_url": "https://aklananimalrescue.com/volunteering",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/aarrc-aklan.jpg",
+      "large": "img/aarrc-aklan-lg.jpg",
+      "width": 960,
+      "height": 357,
+      "credit_url": "https://www.facebook.com/aarrcanimalrescue",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "bark-bohol",
@@ -766,7 +974,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/BARKBohol",
     "email": "info@bark.org.ph",
     "source_url": "https://www.bark.org.ph",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/bark-bohol.jpg",
+      "large": "img/bark-bohol-lg.jpg",
+      "width": 850,
+      "height": 314,
+      "credit_url": "https://www.facebook.com/BARKBohol",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "a-heart-for-paws-gensan",
@@ -792,7 +1008,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/aheartforpawsgensan",
     "email": null,
     "source_url": "https://ahfpgensan.wixsite.com/ahfp",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/a-heart-for-paws-gensan.jpg",
+      "large": "img/a-heart-for-paws-gensan-lg.jpg",
+      "width": 960,
+      "height": 540,
+      "credit_url": "https://www.facebook.com/aheartforpawsgensan",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "arrf-davao",
@@ -817,7 +1041,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/arrfdavao/",
     "email": "arrfdavaoinc@gmail.com",
     "source_url": "https://arrfdavao.org/volunteer/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/arrf-davao.jpg",
+      "large": "img/arrf-davao-lg.jpg",
+      "width": 960,
+      "height": 576,
+      "credit_url": "https://www.facebook.com/arrfdavao/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "bantay-hayop-davao",
@@ -843,7 +1075,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/bantayhayopdavao",
     "email": null,
     "source_url": "https://www.ivolunteer.com.ph/time-volunteer/9470",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/bantay-hayop-davao.jpg",
+      "large": "img/bantay-hayop-davao-lg.jpg",
+      "width": 851,
+      "height": 315,
+      "credit_url": "https://www.facebook.com/bantayhayopdavao",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "bukidnon-animal-welfare-advocates",
@@ -869,7 +1109,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/profile.php?id=61576051625236",
     "email": null,
     "source_url": "https://www.facebook.com/profile.php?id=61576051625236",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/bukidnon-animal-welfare-advocates.jpg",
+      "large": "img/bukidnon-animal-welfare-advocates-lg.jpg",
+      "width": 720,
+      "height": 720,
+      "credit_url": "https://www.facebook.com/profile.php?id=61576051625236",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "cdo-animal-welfare-society",
@@ -894,7 +1142,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/CdOAnimalRescue/",
     "email": null,
     "source_url": "https://www.facebook.com/CdOAnimalRescue/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/cdo-animal-welfare-society.jpg",
+      "large": "img/cdo-animal-welfare-society-lg.jpg",
+      "width": 960,
+      "height": 528,
+      "credit_url": "https://www.facebook.com/CdOAnimalRescue/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "davao-animal-rescue-volunteers",
@@ -919,7 +1175,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/davaoanimalrescuevolunteers/",
     "email": null,
     "source_url": "https://www.facebook.com/davaoanimalrescuevolunteers/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/davao-animal-rescue-volunteers.jpg",
+      "large": "img/davao-animal-rescue-volunteers-lg.jpg",
+      "width": 1163,
+      "height": 703,
+      "credit_url": "https://www.facebook.com/davaoanimalrescuevolunteers/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "dogs-camp-iligan",
@@ -943,7 +1207,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/100085008576116",
     "email": null,
     "source_url": "https://www.facebook.com/100085008576116/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/dogs-camp-iligan.jpg",
+      "large": "img/dogs-camp-iligan-lg.jpg",
+      "width": 720,
+      "height": 720,
+      "credit_url": "https://www.facebook.com/100085008576116",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "hearts-for-paws-butuan",
@@ -969,7 +1241,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/Heartsforpawsbutuan",
     "email": null,
     "source_url": "https://www.facebook.com/Heartsforpawsbutuan/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/hearts-for-paws-butuan.jpg",
+      "large": "img/hearts-for-paws-butuan-lg.jpg",
+      "width": 316,
+      "height": 316,
+      "credit_url": "https://www.facebook.com/Heartsforpawsbutuan",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "limketkai-foundation-cat-home",
@@ -993,7 +1273,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/profile.php?id=61586213766301",
     "email": null,
     "source_url": "https://limketkaifoundation.org/programs/cat-home",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/limketkai-foundation-cat-home.jpg",
+      "large": "img/limketkai-foundation-cat-home-lg.jpg",
+      "width": 940,
+      "height": 348,
+      "credit_url": "https://www.facebook.com/profile.php?id=61586213766301",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "limketkai-foundation-dog-home",
@@ -1017,7 +1305,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/profile.php?id=61586213766301",
     "email": null,
     "source_url": "https://limketkaifoundation.org/programs/dog-home",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/limketkai-foundation-dog-home.jpg",
+      "large": "img/limketkai-foundation-dog-home-lg.jpg",
+      "width": 940,
+      "height": 348,
+      "credit_url": "https://www.facebook.com/profile.php?id=61586213766301",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "paw-savers-zamboanga",
@@ -1043,7 +1339,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/profile.php?id=100064524199737",
     "email": null,
     "source_url": "https://www.facebook.com/profile.php?id=100064524199737",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/paw-savers-zamboanga.jpg",
+      "large": "img/paw-savers-zamboanga-lg.jpg",
+      "width": 960,
+      "height": 364,
+      "credit_url": "https://www.facebook.com/profile.php?id=100064524199737",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "purpaws-gensan",
@@ -1068,7 +1372,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/purpaws/",
     "email": null,
     "source_url": "https://www.facebook.com/purpaws/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/purpaws-gensan.jpg",
+      "large": "img/purpaws-gensan-lg.jpg",
+      "width": 500,
+      "height": 500,
+      "credit_url": "https://www.facebook.com/purpaws/",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "philippine-eagle-foundation",
@@ -1096,7 +1408,15 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/phileaglefdn",
     "email": "info@philippineeaglefoundation.org",
     "source_url": "https://www.philippineeaglefoundation.org/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/philippine-eagle-foundation.jpg",
+      "large": "img/philippine-eagle-foundation-lg.jpg",
+      "width": 960,
+      "height": 640,
+      "credit_url": "https://www.facebook.com/phileaglefdn",
+      "credit_label": "Official Facebook page"
+    }
   },
   {
     "id": "be-pawsitive-siargao",
@@ -1122,7 +1442,15 @@ window.ORGANIZATIONS = [
     "facebook": "",
     "email": "contact@be-pawsitive.org",
     "source_url": "https://www.be-pawsitive.org/volunteer",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/be-pawsitive-siargao.jpg",
+      "large": "img/be-pawsitive-siargao-lg.jpg",
+      "width": 813,
+      "height": 813,
+      "credit_url": "https://www.be-pawsitive.org",
+      "credit_label": "Official website"
+    }
   },
   {
     "id": "youth-for-animals-up-mindanao",
@@ -1147,6 +1475,14 @@ window.ORGANIZATIONS = [
     "facebook": "https://www.facebook.com/YFAUPMin",
     "email": null,
     "source_url": "https://www.facebook.com/YFAUPMin/videos/993548639208276/",
-    "last_verified": "2026-09-30"
+    "last_verified": "2026-09-30",
+    "photo": {
+      "thumb": "img/youth-for-animals-up-mindanao.jpg",
+      "large": "img/youth-for-animals-up-mindanao-lg.jpg",
+      "width": 960,
+      "height": 541,
+      "credit_url": "https://www.facebook.com/YFAUPMin",
+      "credit_label": "Official Facebook page"
+    }
   }
 ];

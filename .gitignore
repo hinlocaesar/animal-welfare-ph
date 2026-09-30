@@ -1,0 +1,6 @@
+# Unprocessed downloads kept only while regenerating photos (see README → Photos)
+img/raw/
+
+# Render artifacts from local QA screenshots
+preview/
+shots/

@@ -199,7 +199,29 @@
 
     var iconWrap = el('div', 'cat-icon');
     iconWrap.setAttribute('aria-hidden', 'true');
-    iconWrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 30));
+
+    /* Official photo when we have one, otherwise the category icon.
+       A failed image load falls back to the icon automatically. */
+    if (org.photo && org.photo.thumb) {
+      var img = document.createElement('img');
+      img.className = 'card-thumb';
+      img.src = org.photo.thumb;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.width = 400;
+      img.height = 400;
+      img.addEventListener('error', function () {
+        if (img.parentNode) img.parentNode.removeChild(img);
+        if (!iconWrap.firstChild) {
+          iconWrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 30));
+        }
+      });
+      iconWrap.appendChild(img);
+    }
+    if (!iconWrap.firstChild) {
+      iconWrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 30));
+    }
     top.appendChild(iconWrap);
 
     var head = el('div', 'card-headings');
@@ -401,6 +423,35 @@
     if (!org) return;
 
     dialogBody.textContent = '';
+
+    /* official photo banner + credit */
+    if (org.photo && org.photo.large) {
+      var photoWrap = el('figure', 'd-photo-wrap');
+      var dPhoto = document.createElement('img');
+      dPhoto.className = 'd-photo';
+      dPhoto.src = org.photo.large;
+      dPhoto.alt = 'Official photo of ' + org.name;
+      dPhoto.width = org.photo.width || 960;
+      dPhoto.height = org.photo.height || 540;
+      dPhoto.decoding = 'async';
+      dPhoto.addEventListener('error', function () {
+        if (photoWrap.parentNode) photoWrap.parentNode.removeChild(photoWrap);
+      });
+      photoWrap.appendChild(dPhoto);
+
+      if (isSafeUrl(org.photo.credit_url)) {
+        var credit = el('figcaption', 'd-credit');
+        credit.appendChild(document.createTextNode('Photo from the org’s '));
+        var creditA = document.createElement('a');
+        creditA.href = org.photo.credit_url;
+        creditA.target = '_blank';
+        creditA.rel = 'noopener noreferrer';
+        creditA.textContent = (org.photo.credit_label || 'official page') + ' ↗';
+        credit.appendChild(creditA);
+        photoWrap.appendChild(credit);
+      }
+      dialogBody.appendChild(photoWrap);
+    }
 
     /* head */
     var head = el('div', 'd-head');

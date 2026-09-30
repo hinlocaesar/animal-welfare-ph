@@ -140,3 +140,27 @@ requested the way a person's browser would.
 - **Volunteer availability.** Some organizations (for example CARA) state publicly that
   general sign-ups are temporarily closed. This is recorded in `how_to_join` rather than
   the entry being hidden — you will want to ask directly either way.
+
+---
+
+## Photo sources
+
+Photographs are not listing evidence — they are taken from each organization's own
+public presence and stored locally in `img/`, so no third-party server is ever contacted
+when the site loads.
+
+| Method | Entries | Notes |
+| --- | --- | --- |
+| Facebook profile photo (`og:image` on the organization's page) | 39 | Card thumbnail |
+| Facebook cover photo (widest image ≥ 1.5:1 on the page) | most of the above | Detail dialog banner when one was found |
+| Official website `og:image` | 3 (`ivhq-animal-care-palawan`, `be-pawsitive-siargao`, `balyena-org`) | No usable Facebook image, or a higher-resolution one |
+| Facebook cover used as the thumbnail | 1 (`bantay-hayop-davao`) | The profile photo was Facebook's default gray avatar |
+| Official profile photo used as the dialog banner | 1 (`purpaws-gensan`) | The cover photo was a TV news still |
+| No photo at all | 1 (`moalboal-animal-welfare-organization`) | No Facebook page and no website exist to source from |
+
+Two organizations had a profile photo too small for a full-width banner, so their dialog
+uses the official website image instead: `balyena-org` (288 px profile → site `og:image`).
+
+All 42 photos were verified visually against the organization they belong to before being
+shipped. `img/raw/` (the untouched downloads) is git-ignored; only the resized JPEGs and
+`img/photos.json` are committed.

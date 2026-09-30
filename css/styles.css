@@ -82,6 +82,7 @@ body {
 }
 
 img, svg { max-width: 100%; }
+img { height: auto; }   /* lets the width/height attributes set aspect-ratio only */
 svg { display: block; }
 
 h1, h2, h3, h4 {
@@ -430,6 +431,34 @@ button, input, select { font: inherit; color: inherit; }
   color: var(--teal-900);
   font-size: .98rem;
 }
+/* Photo variants of the small floating cards */
+.art-card-back img,
+.art-card-mid img {
+  display: block;
+  width: 100%;
+  height: 116px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
+  background: var(--teal-100);
+}
+.art-card-back,
+.art-card-mid {
+  padding: 0;
+  overflow: hidden;
+}
+.art-card-back .art-label,
+.art-card-mid .art-label {
+  display: block;
+  margin: 0;
+  padding: .55rem .8rem .65rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--teal-900);
+  font-size: .92rem;
+  text-align: left;
+  background: var(--cream-card);
+}
+.art-card-back .art-label { text-align: right; }
 .art-card-back  {
   top: 2%; right: -6px; width: 178px;
   text-align: right;
@@ -641,6 +670,16 @@ button, input, select { font: inherit; color: inherit; }
 .cat-icon svg { width: 30px; height: 30px; fill: currentColor; }
 .card:hover .cat-icon { transform: rotate(-8deg) scale(1.06); background: var(--sun-soft); color: var(--sun-ink); }
 
+/* Official photo thumbnail (falls back to the icon above if it fails to load) */
+.card-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  background: var(--teal-100);
+}
+
 .card-headings { min-width: 0; }
 .card h3 {
   margin-bottom: .18rem;
@@ -785,6 +824,40 @@ button, input, select { font: inherit; color: inherit; }
 .tip h3 { margin-bottom: .4rem; }
 .tip p { font-size: .97rem; color: var(--ink-soft); margin: 0; }
 
+/* Official photos credited to the organizations that took them */
+.photo-strip {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(.75rem, 2vw, 1.25rem);
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+.photo-strip li {
+  background: var(--cream-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .5rem .5rem .65rem;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+.photo-strip li:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.photo-strip figure { margin: 0; }
+.photo-strip img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--teal-100);
+}
+.photo-strip figcaption {
+  font-size: .8rem;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  padding: .5rem .15rem 0;
+}
+.photo-strip a { color: var(--teal-700); font-weight: 700; }
+
 /* ---------- 11. About ---------- */
 .about-inner {
   display: grid;
@@ -802,6 +875,19 @@ button, input, select { font: inherit; color: inherit; }
   box-shadow: var(--shadow-md);
 }
 .about-panel h3 { color: #fff; margin-bottom: 1rem; }
+.about-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 6px);
+  margin-bottom: .35rem;
+  background: var(--teal-700);
+}
+.about-photo-wrap { margin: 0 0 1.35rem; }
+.about-photo-wrap figcaption { padding: 0 .1rem; }
+.about-photo-wrap .d-credit { color: rgba(255, 255, 255, .78); }
+.about-photo-wrap .d-credit a { color: var(--sun); }
 .checklist { list-style: none; display: grid; gap: .7rem; }
 .checklist li {
   display: flex;
@@ -901,6 +987,26 @@ button, input, select { font: inherit; color: inherit; }
 .dialog-close svg { stroke: currentColor; }
 
 .dialog-body { overflow-y: auto; padding: clamp(1.5rem, 4vw, 2.25rem); }
+
+/* Official photo banner — bleeds to the dialog edges above the body copy */
+.d-photo-wrap {
+  margin: calc(-1 * clamp(1.5rem, 4vw, 2.25rem)) calc(-1 * clamp(1.5rem, 4vw, 2.25rem)) 1.35rem;
+  background: var(--paper);
+}
+.d-photo {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 25vw, 230px);
+  object-fit: cover;
+  background: var(--teal-100);
+}
+.d-credit {
+  font-size: .78rem;
+  color: var(--ink-mute);
+  text-align: right;
+  padding: .5rem clamp(1.5rem, 4vw, 2.25rem) .1rem;
+}
+.d-credit a { color: var(--teal-700); font-weight: 700; }
 
 .d-head { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.15rem; padding-right: 3rem; }
 .d-icon {
@@ -1057,6 +1163,7 @@ button, input, select { font: inherit; color: inherit; }
   .hero-inner { grid-template-columns: 1.08fr .92fr; }
   .card-grid { grid-template-columns: repeat(3, 1fr); }
   .tips { grid-template-columns: repeat(3, 1fr); }
+  .photo-strip { grid-template-columns: repeat(4, 1fr); }
   .filters { grid-template-columns: 1.5fr repeat(3, 1fr) auto; align-items: end; }
   .field-search, .field-reset { grid-column: auto; }
   #reset-filters { width: 100%; }
