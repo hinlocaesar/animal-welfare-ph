@@ -83,7 +83,7 @@
   }
 
   /* ---------- Element refs ---------- */
-  var grid = $('#card-grid');
+  var grid = $('#entry-index');
   var emptyState = $('#empty-state');
   var countEl = $('#result-count');
   var form = $('#filters');
@@ -140,6 +140,19 @@
       }, '');
       updated.textContent = latest ? formatDate(latest) : '—';
     }
+
+    /* contents line in the lead */
+    var copy = $('#stat-total-copy');
+    if (copy) copy.textContent = String(DATA.length);
+
+    /* region tally table in the lead */
+    var tally = {};
+    DATA.forEach(function (o) { tally[o.region] = (tally[o.region] || 0) + 1; });
+    $$('[data-region-count]').forEach(function (cell) {
+      cell.textContent = String(tally[cell.getAttribute('data-region-count')] || 0);
+    });
+    var totalCell = $('[data-region-total]');
+    if (totalCell) totalCell.textContent = String(DATA.length);
   })();
 
   function formatDate(iso) {
@@ -190,107 +203,99 @@
 
   /* ---------- Rendering ---------- */
   function buildCard(org, index) {
-    var card = el('article', 'card');
-    card.setAttribute('data-id', org.id);
-    card.style.animationDelay = Math.min(index * 35, 420) + 'ms';
+    var entry = el('article', 'entry');
+    entry.setAttribute('data-id', org.id);
+    entry.style.animationDelay = Math.min(index * 22, 340) + 'ms';
 
-    /* top: icon + heading */
-    var top = el('div', 'card-top');
+    /* running number down the left rail */
+    var no = el('span', 'entry-no', String(index + 1).length < 2
+      ? '0' + (index + 1)
+      : String(index + 1));
+    no.setAttribute('aria-hidden', 'true');
+    entry.appendChild(no);
 
-    var iconWrap = el('div', 'cat-icon');
-    iconWrap.setAttribute('aria-hidden', 'true');
-
-    /* Official photo when we have one, otherwise the category icon.
-       A failed image load falls back to the icon automatically. */
+    /* photo (official) or the category icon as fallback */
+    var media;
     if (org.photo && org.photo.thumb) {
-      var img = document.createElement('img');
-      img.className = 'card-thumb';
-      img.src = org.photo.thumb;
-      img.alt = '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.width = 400;
-      img.height = 400;
-      img.addEventListener('error', function () {
-        if (img.parentNode) img.parentNode.removeChild(img);
-        if (!iconWrap.firstChild) {
-          iconWrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 30));
-        }
+      media = document.createElement('img');
+      media.className = 'entry-thumb';
+      media.src = org.photo.thumb;
+      media.alt = '';
+      media.loading = 'lazy';
+      media.decoding = 'async';
+      media.width = 400;
+      media.height = 400;
+      media.addEventListener('error', function () {
+        var fallback = iconNode(org, index);
+        if (media.parentNode) media.parentNode.replaceChild(fallback, media);
       });
-      iconWrap.appendChild(img);
+    } else {
+      media = iconNode(org, index);
     }
-    if (!iconWrap.firstChild) {
-      iconWrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 30));
-    }
-    top.appendChild(iconWrap);
+    entry.appendChild(media);
 
-    var head = el('div', 'card-headings');
-    var h3 = el('h3', null, org.name);
-    head.appendChild(h3);
+    var body = el('div', 'entry-body');
 
-    var loc = el('p', 'card-loc');
-    loc.appendChild(icon24('i-pin', 15));
+    var head = el('div', 'entry-head');
+    head.appendChild(el('h3', null, org.name));
+    body.appendChild(head);
+
+    var loc = el('p', 'entry-loc');
+    loc.appendChild(icon24('i-pin', 14));
     var locText = [org.city, org.province].filter(Boolean).join(', ');
-    var locSpan = el('span', null, locText || org.region);
-    loc.appendChild(locSpan);
-    head.appendChild(loc);
-    top.appendChild(head);
-    card.appendChild(top);
+    loc.appendChild(el('span', null, locText || org.region));
+    body.appendChild(loc);
 
-    /* chips */
-    var chips = el('div', 'chips');
-    var regionChip = el('span', 'chip chip-region', org.region);
-    var catChip = el('span', 'chip chip-cat', CATEGORY_LABELS[org.category] || org.category);
-    chips.appendChild(regionChip);
-    chips.appendChild(catChip);
-    card.appendChild(chips);
+    var tags = el('div', 'entry-tags');
+    tags.appendChild(el('span', 'tag', org.region));
+    tags.appendChild(el('span', 'tag tag-cat', CATEGORY_LABELS[org.category] || org.category));
+    body.appendChild(tags);
 
-    /* description */
-    card.appendChild(el('p', 'card-desc', org.description || ''));
+    body.appendChild(el('p', 'entry-desc', org.description || ''));
 
-    /* animals */
-    var animals = el('div', 'card-animals');
+    var animals = el('p', 'entry-animals');
     animals.appendChild(el('strong', null, 'Animals'));
-    var names = (org.animals || []).slice(0, 4);
+    animals.appendChild(document.createTextNode(' — '));
+    var names = (org.animals || []).slice(0, 5);
     names.forEach(function (a, i) {
-      animals.appendChild(document.createTextNode((i ? ' · ' : '') + a));
+      animals.appendChild(document.createTextNode((i ? ', ' : '') + a));
     });
-    if ((org.animals || []).length > 4) {
-      animals.appendChild(document.createTextNode(' · +' + ((org.animals.length - 4)) + ' more'));
+    if ((org.animals || []).length > 5) {
+      animals.appendChild(document.createTextNode(' · +' + (org.animals.length - 5) + ' more'));
     }
-    card.appendChild(animals);
+    body.appendChild(animals);
 
-    /* actions */
-    var actions = el('div', 'card-actions');
-    var detailBtn = el('button', 'btn btn-teal btn-small', 'View details');
+    var actions = el('div', 'entry-actions');
+    var detailBtn = el('button', 'btn btn-line btn-small', 'View details');
     detailBtn.type = 'button';
     detailBtn.setAttribute('data-open', org.id);
     detailBtn.setAttribute('aria-haspopup', 'dialog');
     detailBtn.setAttribute('aria-label', 'View details for ' + org.name);
     actions.appendChild(detailBtn);
 
-    if (isSafeUrl(org.website)) {
-      var ext = el('a', 'card-source', 'Website ↗');
-      ext.href = org.website;
-      ext.target = '_blank';
-      ext.rel = 'noopener noreferrer';
-      actions.appendChild(ext);
-    } else if (isSafeUrl(org.facebook)) {
-      var fb = el('a', 'card-source', 'Facebook ↗');
-      fb.href = org.facebook;
-      fb.target = '_blank';
-      fb.rel = 'noopener noreferrer';
-      actions.appendChild(fb);
-    } else if (isSafeUrl(org.source_url)) {
-      var src = el('a', 'card-source', 'Source ↗');
-      src.href = org.source_url;
-      src.target = '_blank';
-      src.rel = 'noopener noreferrer';
-      actions.appendChild(src);
-    }
-    card.appendChild(actions);
+    var outbound = isSafeUrl(org.website) ? ['Website', org.website]
+      : isSafeUrl(org.facebook) ? ['Facebook', org.facebook]
+      : isSafeUrl(org.source_url) ? ['Source', org.source_url] : null;
 
-    return card;
+    if (outbound) {
+      var link = el('a', 'entry-link', outbound[0] + ' ↗');
+      link.href = outbound[1];
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      actions.appendChild(link);
+    }
+    body.appendChild(actions);
+
+    entry.appendChild(body);
+    return entry;
+  }
+
+  /* the square that stands in when there is no photo */
+  function iconNode(org, index) {
+    var wrap = el('div', 'entry-icon');
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(icon(CATEGORY_ICON[org.category] || 'i-mixed', 28));
+    return wrap;
   }
 
   function render(list) {
@@ -472,12 +477,10 @@
     ));
     headText.appendChild(loc);
 
-    var chips = el('div', 'chips');
-    chips.style.marginTop = '.7rem';
-    chips.style.marginBottom = '0';
-    chips.appendChild(el('span', 'chip chip-cat', CATEGORY_LABELS[org.category] || org.category));
-    chips.appendChild(el('span', 'chip chip-region', org.region));
-    headText.appendChild(chips);
+    var tags = el('div', 'd-tags');
+    tags.appendChild(el('span', 'tag tag-cat', CATEGORY_LABELS[org.category] || org.category));
+    tags.appendChild(el('span', 'tag', org.region));
+    headText.appendChild(tags);
     head.appendChild(headText);
     dialogBody.appendChild(head);
 
@@ -586,7 +589,7 @@
   resetBtn.addEventListener('click', clearFilters);
   emptyResetBtn.addEventListener('click', clearFilters);
 
-  /* card detail buttons (event delegation) */
+  /* entry detail buttons (event delegation) */
   grid.addEventListener('click', function (e) {
     var btn = e.target.closest ? e.target.closest('[data-open]') : null;
     if (btn) openDialog(btn.getAttribute('data-open'));

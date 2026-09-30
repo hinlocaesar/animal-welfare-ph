@@ -92,7 +92,7 @@ do not add it. Never invent a name, URL, email address or phone number.
 ```
 
 `photo` is optional — use `null` when the organization has no image you can legitimately
-use, and the card falls back to its category icon.
+use, and the row falls back to its category icon.
 
 **Field rules**
 
@@ -123,7 +123,7 @@ window.ORGANIZATIONS = [
 
 **Step 4 — add the source** to `data/SOURCES.md`, and set `last_verified` to today.
 
-**Step 5 — check it.** Open `index.html`, confirm the card appears, the filters find it,
+**Step 5 — check it.** Open `index.html`, confirm the row appears, the filters find it,
 and the detail dialog opens.
 
 > Ordering, counts, the hero statistics, the "animals" dropdown, and the footer
@@ -140,7 +140,7 @@ They were downloaded once, resized, and are served from `img/` so nothing is hot
 
 | File | Size | Used for |
 | --- | --- | --- |
-| `img/<id>.jpg` | 400 × 400 square | directory card thumbnail |
+| `img/<id>.jpg` | 400 × 400 square | directory entry thumbnail |
 | `img/<id>-lg.jpg` | max 1200 px wide | detail dialog, hero, tips strip |
 | `img/photos.json` | — | machine-readable index of what came from where |
 
@@ -161,17 +161,27 @@ Facebook page nor a website, so there was no official image to source.
 
 ## Design notes
 
-- **Palette** — warm cream background, deep teal, coral and sunny yellow accents, all
-  defined as CSS custom properties in `css/styles.css` under `:root`, and tuned to meet
-  WCAG AA contrast.
-- **Typography** — [Fredoka](https://fonts.google.com/specimen/Fredoka) for display and
-  [Nunito](https://fonts.google.com/specimen/Nunito) for body, loaded from Google Fonts
-  with full system-font fallbacks so the site still renders offline.
-- **Illustrations** — every icon, the paw-print favicon, and the dividers are inline SVG.
-  The only raster assets are the organization photos in `img/` (see **Photos** below), all
-  stored locally, so the site still renders fully offline with **no external image requests**.
-- **Motion** — card hover lift, a wagging brand mark, a bouncing paw, and a walking paw
-  divider. All of it is disabled under `prefers-reduced-motion: reduce`.
+The site is laid out like a **printed civic directory**: a nameplate and dateline, a lead
+story with a contents list and a tally table, then the listings as a numbered index with
+hairline rules — no cards, no gradients, no decorative shapes.
+
+- **Palette** — newsprint paper (`#F5F2EA`), near-black ink, one forest-green accent
+  (`#0B4A34`) and a brick stamp colour used for section rails. All defined as CSS custom
+  properties in `css/styles.css` under `:root`, and tuned to meet WCAG AA contrast.
+- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces) for headlines and
+  listing titles, [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for body
+  text, and [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) for labels,
+  counts and captions, loaded from Google Fonts with full system-font fallbacks so the site
+  still renders offline.
+- **Layout** — numbered rows (01–43) rather than a card grid, borders and rules instead of
+  shadows, square corners throughout, and tabular figures in the tally table and row numbers.
+- **Illustrations** — every icon and the favicon are inline SVG (an ink square with a cream
+  paw). The only raster assets are the organization photos in `img/` (see **Photos** above),
+  all stored locally, so the site still renders fully offline with **no external image
+  requests**.
+- **Motion** — deliberately restrained: a short row fade-in when the index renders, a hover
+  tint on rows and contents lines, and the dialog sheet transition. All of it is disabled
+  under `prefers-reduced-motion: reduce`.
 - **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled
   form controls, `aria-live` result counts, a native `<dialog>` with focus handling,
   and full keyboard operation.
