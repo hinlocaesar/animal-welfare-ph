@@ -1,5 +1,9 @@
 # Paws & Hearts PH 🐾
 
+> **Archived copy.** The site now runs on Payload CMS + Next.js — see the
+> [root README](../README.md). This folder keeps the original dependency-free static build
+> (it is also what `npm run seed` imports its listings and photographs from).
+
 A curated, hand-verified static directory of places in the Philippines where you can
 volunteer to help animals — shelters, rescues, wildlife and marine conservation programs,
 farm sanctuaries, and spay/neuter drives across **Luzon, Visayas and Mindanao**.
