@@ -47,7 +47,7 @@ delete the user and seed again.
 static-legacy/            the original static build: source of truth for the research
   data/organizations.json   43 verified listings (the seed reads this)
   data/SOURCES.md           every source URL and every rejection, with reasons
-  img/                      official photographs (the seed uploads these)
+  img/                      official photographs (the seed uploads and recompresses these)
   index.html                open it directly, no server required
 
 src/
@@ -99,9 +99,13 @@ payload.db                 the SQLite database (gitignored, rebuilt by the seed)
 | `order` | Row order in the directory (sidebar field) |
 
 **`photos`**: official images. Files are stored in `media/` (gitignored) and served at
-`/api/photos/file/<filename>`. Payload generates the 400×400 thumbnail each directory row uses;
-the original is what the detail dialog and the hero show. `creditUrl` / `creditLabel` power the
-"photo from the org's …" credit line wherever the image appears.
+`/api/photos/file/<filename>` with `Cache-Control: public, max-age=31536000, immutable` (set in
+`next.config.ts`) — the seed is the only thing that ever writes them, so a repeat visit
+downloads nothing. The seed also recompresses every upload (mozjpeg, quality 82, same
+dimensions, kept only if it actually got smaller), and Payload generates the 300×300 thumbnail
+each directory row uses, 2× the 76px slot it fills. The original is what the detail dialog and
+the hero show. `creditUrl` / `creditLabel` power the "photo from the org's …" credit line
+wherever the image appears.
 
 The hero stack and the photo strip choose their own pictures in `src/app/(frontend)/page.tsx`
 (`STACK_FILES`, `STRIP_FILES`); `EDITORIAL_PHOTOS` in `src/scripts/seed.ts` lists extra crops

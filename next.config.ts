@@ -10,9 +10,25 @@ const nextConfig: NextConfig = {
   images: {
     localPatterns: [
       {
-        pathname: '/api/media/file/**',
+        pathname: '/api/photos/file/**',
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        /* Payload streams these straight off disk and the seed is the only
+           thing that ever writes them, so a repeat visit should never
+           re-download a single byte. */
+        source: '/api/photos/file/:file*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {

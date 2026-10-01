@@ -16,9 +16,12 @@ export const Photos: CollectionConfig = {
     mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     imageSizes: [
       {
+        // 300px is 2x the 76px slot the directory grid shows these in, so the
+        // thumbnails stay crisp on retina without shipping 400px of pixels
+        // nobody can see.
         name: 'thumb',
-        width: 400,
-        height: 400,
+        width: 300,
+        height: 300,
         // sharp's default fit is 'cover' with a centre crop, giving the square
         // thumbnail the directory uses beside each listing.
         withoutEnlargement: false,

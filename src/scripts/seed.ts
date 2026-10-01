@@ -20,6 +20,8 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import sharp from 'sharp'
+
 import { getPayload } from 'payload'
 
 import config from '../payload.config'
@@ -51,6 +53,26 @@ interface SourceOrg {
   source_url: string
   last_verified: string
   photo?: SourcePhoto | null
+}
+
+/**
+ * Re-encode a JPEG for the web. The files in static-legacy/img are the
+ * organizations' own uploads, often straight off a phone or a Facebook
+ * download, so they frequently carry more bytes than the directory needs.
+ * Dimensions are untouched; anything that does not come out smaller is
+ * returned as it came in.
+ */
+async function optimizeImage(raw: Buffer): Promise<Buffer> {
+  try {
+    if ((await sharp(raw).metadata()).format !== 'jpeg') return raw
+    const recompressed = await sharp(raw)
+      .rotate()
+      .jpeg({ quality: 82, progressive: true, mozjpeg: true })
+      .toBuffer()
+    return recompressed.length < raw.length ? recompressed : raw
+  } catch {
+    return raw
+  }
 }
 
 const here = path.dirname(fileURLToPath(import.meta.url))
@@ -121,7 +143,8 @@ async function main(): Promise<void> {
     }
 
     try {
-      const data = await fs.readFile(path.join(imgDir, filename))
+      const raw = await fs.readFile(path.join(imgDir, filename))
+      const data = await optimizeImage(raw)
       const created = await payload.create({
         collection: 'photos',
         data: {
