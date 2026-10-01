@@ -165,7 +165,9 @@ origin, used for admin links).
   run the seed once against that database, and keep uploads in a storage adapter (S3/R2).
 - **Static export is not possible** for this build: the admin panel and the database need a
   server. If you only need the read-only site, the original static build in `static-legacy/`
-  still deploys to GitHub Pages as-is.
+  still deploys to GitHub Pages as-is. This repository already does: the `gh-pages` branch is a
+  verbatim copy of `static-legacy/` at the root, and GitHub Pages serves it from there, so
+  pushing that branch updates the live site.
 
 ---
 
