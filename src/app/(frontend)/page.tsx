@@ -20,9 +20,9 @@ const HERO_FILE = {
 
 const STACK_FILES = [
   {
-    file: 'ivhq-animal-care-palawan-lg.jpg',
-    alt: 'A volunteer with rescued dogs in Palawan',
-    caption: 'IVHQ · Palawan',
+    file: 'aarrc-aklan-dog.jpg',
+    alt: 'A happy tan dog with its tongue out, from Aklan Animal Rescue and Rehabilitation Center',
+    caption: 'AARRC · Aklan',
     className: 'sc-1',
     depth: 26,
   },

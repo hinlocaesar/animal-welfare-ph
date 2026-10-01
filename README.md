@@ -99,9 +99,13 @@ payload.db                 the SQLite database (gitignored, rebuilt by the seed)
 | `order` | Row order in the directory (sidebar field) |
 
 **`photos`**: official images. Files are stored in `media/` (gitignored) and served at
-`/api/media/file/<filename>`. Payload generates the 400×400 thumbnail each directory row uses;
+`/api/photos/file/<filename>`. Payload generates the 400×400 thumbnail each directory row uses;
 the original is what the detail dialog and the hero show. `creditUrl` / `creditLabel` power the
 "photo from the org's …" credit line wherever the image appears.
+
+The hero stack and the photo strip choose their own pictures in `src/app/(frontend)/page.tsx`
+(`STACK_FILES`, `STRIP_FILES`); `EDITORIAL_PHOTOS` in `src/scripts/seed.ts` lists extra crops
+that only the home page uses.
 
 **`users`**: admin accounts (Payload auth).
 
@@ -128,8 +132,8 @@ from `src/scripts/seed.ts` into your own script.
 
 ## Motion & accessibility
 
-- **GSAP + ScrollTrigger + Lenis** (npm) drive the intro, reveals, parallax, the cursor photo
-  preview and smooth scrolling, all in `src/components/Motion.tsx`.
+- **GSAP + ScrollTrigger + Lenis** (npm) drive the intro, reveals, parallax and smooth
+  scrolling, all in `src/components/Motion.tsx`.
 - Everything is opt-out: with `prefers-reduced-motion: reduce` the component renders only the
   scroll progress bar, and the page is complete and readable with JavaScript failing entirely.
 - WCAG AA contrast, visible focus rings, keyboard-operable filters and `<dialog>` detail view

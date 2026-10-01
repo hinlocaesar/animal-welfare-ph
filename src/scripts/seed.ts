@@ -6,6 +6,7 @@
  * Sources:
  *   - static-legacy/data/organizations.json: the 43 verified listings
  *   - static-legacy/img/<id>-lg.jpg: the official photographs
+ *   - static-legacy/img/<editorial>.jpg: extra crops the home page picks itself
  *
  * It is idempotent: listings are matched on their slug, photographs on their
  * filename, and an admin user is only created when there is none. It also
@@ -58,6 +59,20 @@ const legacyData = path.join(root, 'static-legacy', 'data')
 const imgDir = path.join(root, 'static-legacy', 'img')
 const publishDir = path.join(root, 'public', 'data')
 
+/**
+ * Photographs the home page arranges itself rather than showing beside a
+ * listing. Each is an organization's own picture, cropped or framed for the
+ * hero; `creditUrl` still points at the page it came from.
+ */
+const EDITORIAL_PHOTOS = [
+  {
+    file: 'aarrc-aklan-dog.jpg',
+    alt: 'A happy tan dog with its tongue out, from the Aklan Animal Rescue and Rehabilitation Center',
+    creditUrl: 'https://www.facebook.com/aarrcanimalrescue',
+    creditLabel: 'Official Facebook page',
+  },
+]
+
 async function main(): Promise<void> {
   console.log('[seed] main() entered')
   console.log('[seed] DATABASE_URL =', process.env.DATABASE_URL || '(unset)')
@@ -90,21 +105,19 @@ async function main(): Promise<void> {
   let photosExisting = 0
   let photosMissing = 0
 
-  for (const org of source) {
-    const large = org.photo?.large
-    if (!large) continue
-
-    const filename = path.basename(large)
+/** Upload one image if it is not already in the collection. */
+  const ensurePhoto = async (
+    filename: string,
+    meta: { alt: string; creditUrl?: string | null; creditLabel?: string | null },
+  ): Promise<number | null> => {
     const found = await payload.find({
       collection: 'photos',
       limit: 1,
       where: { filename: { equals: filename } },
     })
-
     if (found.docs[0]) {
-      photoIdByOrg.set(org.id, found.docs[0].id)
       photosExisting++
-      continue
+      return found.docs[0].id
     }
 
     try {
@@ -112,18 +125,35 @@ async function main(): Promise<void> {
       const created = await payload.create({
         collection: 'photos',
         data: {
-          alt: `${org.name}, official photograph`,
-          creditUrl: org.photo?.credit_url || undefined,
-          creditLabel: org.photo?.credit_label || 'official page',
+          alt: meta.alt,
+          creditUrl: meta.creditUrl || undefined,
+          creditLabel: meta.creditLabel || 'official page',
         },
         file: { data, mimetype: 'image/jpeg', name: filename, size: data.length },
       })
-      photoIdByOrg.set(org.id, created.id)
       photosCreated++
+      return created.id
     } catch (error) {
       photosMissing++
       console.warn(`  ! no file for ${filename}: ${(error as Error).message}`)
+      return null
     }
+  }
+
+  for (const org of source) {
+    const large = org.photo?.large
+    if (!large) continue
+
+    const id = await ensurePhoto(path.basename(large), {
+      alt: `${org.name}, official photograph`,
+      creditUrl: org.photo?.credit_url,
+      creditLabel: org.photo?.credit_label,
+    })
+    if (id !== null) photoIdByOrg.set(org.id, id)
+  }
+
+  for (const extra of EDITORIAL_PHOTOS) {
+    await ensurePhoto(extra.file, extra)
   }
 
   /* ---------------------------------------------------------------
