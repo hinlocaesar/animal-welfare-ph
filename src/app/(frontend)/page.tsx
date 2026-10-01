@@ -291,19 +291,7 @@ export default async function HomePage() {
             <h2 id="about-title">How this directory was built</h2>
             <p>
               Every organization here was found through public web research and confirmed against
-              an official website, an official Facebook page, or another primary source. That
-              source is listed on each entry. Fields that could not be verified are left blank or{' '}
-              <code>null</code> rather than guessed.
-            </p>
-            <p>
-              Listings change: pages get taken down, programs pause, email addresses go stale.
-              Please confirm details directly with the organization before you travel or commit
-              your time.
-            </p>
-            <p>
-              Some candidates were deliberately left out: pages that had gone dark, phone-only
-              groups, hosts we could not confirm, and venues that let tourists handle wild
-              animals. The rejections and the reasons are written down in <code>SOURCES.md</code>.
+              an official website, an official Facebook page, or another primary source.
             </p>
             <p className="about-links">
               <a className="btn btn-line btn-small" href="/data/SOURCES.md">
