@@ -121,11 +121,7 @@ function Row({
   const names = org.animals.slice(0, 5)
 
   return (
-    <article
-      className={`entry cat-${org.category}`}
-      data-id={org.id}
-      data-photo={org.photo ? org.photo.large : undefined}
-    >
+    <article className={`entry cat-${org.category}`} data-id={org.id}>
       <span className="entry-no" aria-hidden="true">
         {String(index + 1).padStart(2, '0')}
       </span>

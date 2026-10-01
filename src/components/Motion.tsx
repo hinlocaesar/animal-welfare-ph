@@ -39,99 +39,6 @@ function countUp(node: HTMLElement): void {
   node.dataset.countFrame = String(frame)
 }
 
-/* ---------------------------------------------------------------
-   Cursor-following photo preview on directory rows.
-   A background-image div, so it never changes the page's <img> math.
-   --------------------------------------------------------------- */
-function setupPreview(): (() => void) | null {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return null
-  const indexEl = document.getElementById('entry-index')
-  if (!indexEl) return null
-
-  let pv: HTMLDivElement | null = null
-  let pvImg: HTMLDivElement | null = null
-  let pvLabel: HTMLSpanElement | null = null
-  let px = 0
-  let ty = 0
-  let tx = 0
-  let py = 0
-  let looping = false
-  let alive = true
-
-  const ensurePreview = () => {
-    if (pv) return pv
-    pv = document.createElement('div')
-    pv.className = 'hover-preview'
-    pv.setAttribute('aria-hidden', 'true')
-    pvImg = document.createElement('div')
-    pvImg.className = 'hp-img'
-    pvLabel = document.createElement('span')
-    pvLabel.className = 'hp-label'
-    const inner = document.createElement('div')
-    inner.className = 'hover-preview-inner'
-    inner.appendChild(pvImg)
-    inner.appendChild(pvLabel)
-    pv.appendChild(inner)
-    document.body.appendChild(pv)
-    return pv
-  }
-
-  const paint = () => {
-    if (pv) pv.style.transform = `translate3d(${px}px,${py}px,0)`
-  }
-
-  const loop = () => {
-    if (!alive) return
-    px += (tx - px) * 0.17
-    py += (ty - py) * 0.17
-    paint()
-    window.requestAnimationFrame(loop)
-  }
-
-  const place = (event: MouseEvent) => {
-    const w = 232
-    const h = 210
-    tx = Math.min(event.clientX + 34, window.innerWidth - w - 14)
-    ty = Math.min(Math.max(event.clientY - h / 2, 14), window.innerHeight - h - 14)
-    px = tx
-    py = ty
-    paint()
-  }
-
-  const onOver = (event: Event) => {
-    const target = event.target as Element | null
-    const row = target?.closest ? target.closest('.entry') : null
-    if (!row) return
-    const src = row.getAttribute('data-photo')
-    if (!src) return
-    ensurePreview()
-    if (pvImg) pvImg.style.backgroundImage = `url("${src}")`
-    const heading = row.querySelector('h3')
-    if (pvLabel) pvLabel.textContent = heading ? heading.textContent || '' : ''
-    pv?.classList.add('is-visible')
-    if (!looping) {
-      looping = true
-      window.requestAnimationFrame(loop)
-    }
-  }
-
-  const hide = () => pv?.classList.remove('is-visible')
-
-  document.addEventListener('mousemove', place, { passive: true })
-  indexEl.addEventListener('mouseover', onOver)
-  indexEl.addEventListener('mouseleave', hide)
-  document.addEventListener('mouseleave', hide)
-
-  return () => {
-    alive = false
-    document.removeEventListener('mousemove', place)
-    indexEl.removeEventListener('mouseover', onOver)
-    indexEl.removeEventListener('mouseleave', hide)
-    document.removeEventListener('mouseleave', hide)
-    pv?.remove()
-  }
-}
-
 export function Motion() {
   useEffect(() => {
     const docEl = document.documentElement
@@ -179,8 +86,6 @@ export function Motion() {
         counters.forEach((node) => observer?.observe(node))
       }
     }
-
-    const teardownPreview = setupPreview()
 
     /* --- everything below animates: skip it entirely when motion is off --- */
     let teardownAnimation: (() => void) | null = null
@@ -354,7 +259,6 @@ export function Motion() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', paint)
       observer?.disconnect()
-      teardownPreview?.()
       teardownAnimation?.()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

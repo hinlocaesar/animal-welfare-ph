@@ -205,7 +205,6 @@
   function buildCard(org, index) {
     var entry = el('article', 'entry cat-' + org.category);
     entry.setAttribute('data-id', org.id);
-    if (org.photo && org.photo.large) entry.setAttribute('data-photo', org.photo.large);
 
     /* running number down the left rail */
     var no = el('span', 'entry-no', String(index + 1).length < 2
