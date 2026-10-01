@@ -1,234 +1,195 @@
-# Paws & Hearts PH 🐾
+# Paws & Hearts PH
 
-A curated, hand-verified static directory of places in the Philippines where you can
-volunteer to help animals — shelters, rescues, wildlife and marine conservation programs,
-farm sanctuaries, and spay/neuter drives across **Luzon, Visayas and Mindanao**.
+A hand-verified directory of animal volunteer opportunities in the Philippines — shelters,
+rescues, sanctuaries and conservation programs across Luzon, Visayas and Mindanao, each listing
+checked against an official website or official Facebook page before publication.
 
-No framework. No build step. No backend. No database.
+This repository runs as a **Payload CMS + Next.js** application:
 
----
-
-## Open it
-
-Just double-click **`index.html`**. It works straight from the file system (`file://`).
-
-There is no server, no install, and no `npm install`. The listing data is loaded with a
-plain `<script>` tag precisely so that `fetch()` is never needed — `fetch()` of a local
-JSON file is blocked by browsers on `file://`.
-
-```
-index.html
-├── css/styles.css
-├── js/app.js            ← rendering, filtering, URL sync, detail dialog
-├── js/motion.js         ← animation layer (progressive enhancement)
-├── js/vendor/           ← GSAP, ScrollTrigger and Lenis, vendored locally
-├── img/                 ← organization photos (local, see Photos)
-├── data/organizations.js   ← loaded by <script> (window.ORGANIZATIONS)
-├── data/organizations.json ← identical copy, for reference/tooling
-├── data/SOURCES.md         ← every source used to verify a listing
-├── favicon.svg
-└── README.md
-```
+- **Content lives in the database** — edit it at `/admin`, no code changes needed.
+- **The public site is server-rendered** from that database, with the same dark, playful
+  cinematic design as the original static build.
+- **`static-legacy/`** keeps the original dependency-free static site (plain HTML/CSS/JS),
+  which still opens by double-clicking `static-legacy/index.html`.
 
 ---
 
-## Deploy
+## Quick start
 
-### GitHub Pages
-
-1. Push this repository to GitHub.
-2. Open the repo on GitHub → **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to *Deploy from a branch*,
-   **Branch** to `main`, folder to `/ (root)`, then **Save**.
-4. Wait ~1 minute. The site appears at
-   `https://<your-username>.github.io/<repo-name>/`.
-
-Nothing needs to be built — GitHub Pages serves the files exactly as they are.
-
-### Netlify
-
-- Drag and drop this folder onto <https://app.netlify.com/drop>, **or**
-- Connect the repo and leave the build command empty and the publish directory as `/`.
-
-### Any other static host
-
-Upload the folder as-is. Every path in the project is relative
-(`css/styles.css`, `data/organizations.js`, …), so it works from a subdirectory too.
-
----
-
-## How to add a new organization
-
-**Step 1 — verify it first.** Find the organization's official website or official
-Facebook page. Confirm it exists and is active. If you cannot find a primary source,
-do not add it. Never invent a name, URL, email address or phone number.
-
-**Step 2 — open `data/organizations.json`** and append an object to the array:
-
-```json
-{
-  "id": "my-organization-slug",
-  "name": "My Organization",
-  "category": "dogs-cats",
-  "animals": ["dogs", "cats"],
-  "region": "Visayas",
-  "city": "Cebu City",
-  "province": "Cebu",
-  "description": "Two or three sentences describing what the organization does, written in your own words.",
-  "volunteer_activities": ["dog walking", "feeding", "clinic assistance"],
-  "how_to_join": "How someone actually signs up, based on what the organization says.",
-  "requirements": "What they require of volunteers, or null if it is not published.",
-  "website": "https://example.org/",
-  "facebook": "https://www.facebook.com/example",
-  "email": null,
-  "source_url": "https://example.org/about",
-  "last_verified": "2026-09-30",
-  "photo": {
-    "thumb": "img/my-organization-slug.jpg",
-    "large": "img/my-organization-slug-lg.jpg",
-    "width": 960,
-    "height": 540,
-    "credit_url": "https://www.facebook.com/example",
-    "credit_label": "Official Facebook page"
-  }
-}
+```bash
+npm install
+npm run seed     # import the 43 listings + photos, create the admin user
+npm run dev      # http://localhost:3000
 ```
 
-`photo` is optional — use `null` when the organization has no image you can legitimately
-use, and the row falls back to its category icon.
-
-**Field rules**
-
-| Field | Allowed values |
+| URL | What |
 | --- | --- |
-| `id` | kebab-case slug, **unique** across the file |
-| `category` | `dogs-cats`, `wildlife`, `marine`, `farm`, `drives`, `mixed` |
-| `region` | `Luzon`, `Visayas`, `Mindanao` |
-| `animals` | short lowercase labels, e.g. `dogs`, `cats`, `sea turtles`, `Philippine eagle` |
-| `email` | a real address, or `null` — never a guessed one |
-| `website` / `facebook` | a real `https://` URL, or `""` if unknown |
-| `source_url` | **required** — the URL where you verified the entry |
-| `last_verified` | `YYYY-MM-DD` |
-| `photo` | an object with `thumb`, `large`, `width`, `height`, `credit_url`, `credit_label` — or `null` |
+| `http://localhost:3000/` | The public directory |
+| `http://localhost:3000/admin` | The Payload admin panel |
 
-Unknown fields should be `null` (email) or `""` (other strings) rather than fabricated.
-Any field that is not a usable `https://` link is simply not rendered as a button by the UI.
+The seed creates your admin account from `.env`, so set these **before** seeding:
 
-**Step 3 — copy the exact same object into `data/organizations.js`** so the array in
-`window.ORGANIZATIONS` matches. Keep the two files identical:
-
-```js
-window.ORGANIZATIONS = [
-  // …existing entries…
-  { "id": "my-organization-slug", "name": "My Organization", /* … */ }
-];
+```bash
+SEED_ADMIN_EMAIL=admin@pawsandhearts.ph     # shown when the seed runs
+SEED_ADMIN_PASSWORD=choose-a-password       # use something else, seriously
 ```
 
-**Step 4 — add the source** to `data/SOURCES.md`, and set `last_verified` to today.
-
-**Step 5 — check it.** Open `index.html`, confirm the row appears, the filters find it,
-and the detail dialog opens.
-
-> Ordering, counts, the hero statistics, the "animals" dropdown, and the footer
-> "last updated" date are all derived automatically from the data — there is nothing
-> else to update.
+Copy `.env.example` to `.env` if you have not already (it also holds `DATABASE_URL` and
+`PAYLOAD_SECRET`). The password is stored only in your local database, and the seed will not
+overwrite an existing user — to change it later, either edit the user in `/admin` → Users or
+delete the user and seed again.
 
 ---
 
-## Photos
+## How it fits together
 
-Every listing that shows a photo uses an **official image from that organization's own
-Facebook page or website** — profile photos, cover photos, or the site's `og:image`.
-They were downloaded once, resized, and are served from `img/` so nothing is hotlinked:
+```
+static-legacy/            the original static build — source of truth for the research
+  data/organizations.json   43 verified listings (the seed reads this)
+  data/SOURCES.md           every source URL and every rejection, with reasons
+  img/                      official photographs (the seed uploads these)
+  index.html                open it directly, no server required
 
-| File | Size | Used for |
-| --- | --- | --- |
-| `img/<id>.jpg` | 400 × 400 square | directory entry thumbnail |
-| `img/<id>-lg.jpg` | max 1200 px wide | detail dialog, hero, tips strip |
-| `img/photos.json` | — | machine-readable index of what came from where |
+src/
+  payload.config.ts        collections, SQLite adapter, sharp
+  collections/             Organizations, Photos, Users
+  scripts/seed.ts          static-legacy → CMS → public/data
+  components/              Hero, Directory, Motion, Header, Footer, Sprite…
+  app/(frontend)/          the public site (server-rendered)
+  app/(payload)/           the admin panel (generated by Payload)
 
-**Attribution.** Each photo is credited where it appears (dialog caption, tips strip,
-about panel) and links back to the page it came from. Photos remain © their owners and
-can be removed on request — delete the two files for that `id`, set `"photo": null` in
-`data/organizations.json` + `data/organizations.js`, and the UI falls back to the SVG
-category icon with no other change.
+public/
+  data/                    organizations.json + SOURCES.md, published by the seed
+  favicon.svg
 
-**Replacing a photo:** drop a better image over `img/<id>.jpg` / `img/<id>-lg.jpg` and
-update `width`/`height` in the entry. Keep `width` and `height` accurate — they prevent
-layout shift while the image loads.
+media/                     uploaded photographs (gitignored, rebuilt by the seed)
+payload.db                 the SQLite database (gitignored, rebuilt by the seed)
+```
 
-**One listing has no photo:** `moalboal-animal-welfare-organization` has neither a
-Facebook page nor a website, so there was no official image to source.
+### Scripts
 
----
-
-## Design notes
-
-The site is designed as a **warm, cinematic night page with a playful streak**: a full-bleed
-photograph of real volunteers behind the headline, a pile of tilted photo cards with tape
-strips, a scrolling ticker of regions and animals, and colour-coded dots on every listing.
-
-- **Palette** — warm charcoal (`#121110`), cream text (`#F7F2E8`), one gold accent
-  (`#FFC24D`) for headings, links, buttons and the scroll rail, with coral, mint, sky and
-  lilac used *only* as category codes (dogs & cats, farm, marine, wildlife, drives).
-  Everything is a CSS custom property under `:root` in `css/styles.css`, and every
-  text/background pair was tuned for WCAG AA — Lighthouse accessibility scores **100**.
-- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces) as a variable font
-  with its `SOFT` and `WONK` axes enabled, so display headings carry a slightly wonky,
-  friendly personality and italic accent words (`animals`, `responsibly`) turn gold;
-  [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for body text and
-  [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) for labels, counts and
-  captions, loaded from Google Fonts with system fallbacks so the site still renders offline.
-- **Layout** — full-height hero with a copy/photo-stack split, a masked ticker band, then the
-  43 listings as numbered rows (01–43) with hairline rules, thumbnails and colour-coded tags
-  rather than a grid of identical cards. A two-column responsible-volunteering list, a plate
-  strip of photographs, an about panel and a colophon footer follow.
-- **Photography and illustrations** — every icon and the favicon are inline SVG (gold paw on
-  a charcoal tile). The only raster assets are the organization photos in `img/` (see
-  **Photos** above), stored locally, so the site makes **no external image requests**.
-- **Motion** — scroll-linked and playful rather than decorative: a word-by-word headline
-  reveal, slow hero parallax, a pointer tilt on the photo pile, staggered section reveals,
-  counting statistics, the ticker, and a polaroid that trails the cursor while you hover the
-  index. Everything lives in `js/motion.js` and is skipped entirely under
-  `prefers-reduced-motion: reduce`.
-- **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled form
-  controls, `aria-live` result counts, a native `<dialog>` with focus handling, and full
-  keyboard operation.
-
-## Libraries
-
-There is still no build step: three small animation libraries are **vendored** under
-`js/vendor/` and loaded with plain `<script>` tags, so the page works from `file://` and
-offline forever, with no CDN dependency.
-
-| File | Project | Licence |
-| --- | --- | --- |
-| `js/vendor/gsap.min.js` | [GSAP](https://gsap.com/) | GreenSock standard licence (free for this use) |
-| `js/vendor/ScrollTrigger.min.js` | [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) | GreenSock standard licence |
-| `js/vendor/lenis.min.js` | [Lenis](https://darkroom.engineering/lenis/) | MIT |
-
-`js/motion.js` checks for all three before touching anything: if a file is missing, the
-animation code never runs and the page renders as a complete, static document. To upgrade,
-drop a newer build over the same filename.
-
-## Features
-
-- Search box plus **region**, **organization type** and **animal** filters.
-- Live result count and a friendly empty state with a reset button.
-- Filter state is written to the **URL hash** (`#q=turtle&region=Visayas`) so a filtered
-  view can be shared or bookmarked — including from `file://`, where `history.replaceState`
-  with a query string is blocked.
-- Native `<dialog>` detail view per organization with description, activities,
-  requirements and contact links.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server with hot reload (Next.js) |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run seed` | Import listings/photos, create the admin user, publish `public/data` |
+| `npm run generate:types` | Regenerate `src/payload-types.ts` after changing a collection |
+| `npm run lint` | ESLint |
 
 ---
 
-## Data & disclaimer
+## The data model
 
-Listing data was gathered from public web sources and recorded in
-[`data/SOURCES.md`](data/SOURCES.md). This is an independent directory, is not affiliated
-with or endorsed by any organization listed, and **makes no claim that an opportunity is
-currently open** — programs pause, pages move, and requirements change.
+**`organizations`** — one volunteer opportunity.
 
-**Always confirm details directly with the organization** before you travel, donate or
-commit your time.
+| Field | Notes |
+| --- | --- |
+| `name`, `slug` | Official name; the kebab-case slug is the listing's stable ID |
+| `category` | `dogs-cats` · `wildlife` · `marine` · `farm` · `drives` · `mixed` |
+| `region` | `Luzon` · `Visayas` · `Mindanao` |
+| `city`, `province` | Left empty when the address is not published |
+| `animals[]` | Short lowercase labels, e.g. `sea turtles` |
+| `description` | Two or three sentences |
+| `volunteerActivities[]`, `howToJoin`, `requirements` | What volunteers do and what is asked of them |
+| `website`, `facebook`, `email` | Only verified contacts — never guess an address |
+| `sourceUrl` | **Required.** The official page the listing was checked against |
+| `lastVerified` | **Required.** `YYYY-MM-DD` of the last check |
+| `photo` | Relationship to a photograph in the `photos` collection |
+| `order` | Row order in the directory (sidebar field) |
+
+**`photos`** — official images. Files are stored in `media/` (gitignored) and served at
+`/api/media/file/<filename>`. Payload generates the 400×400 thumbnail each directory row uses;
+the original is what the detail dialog and the hero show. `creditUrl` / `creditLabel` power the
+"photo from the org's …" credit line wherever the image appears.
+
+**`users`** — admin accounts (Payload auth).
+
+### Adding an organization
+
+1. Sign in at `/admin` → **Organizations** → **Create new**.
+2. Fill in `name`, `slug`, `category`, `region`, `description`, `sourceUrl` and `lastVerified`
+   — the last two are required on purpose: a listing without a source is not a verified listing.
+3. Add `animals`, `volunteerActivities` and the contact links you can actually verify. Leave
+   anything you cannot verify **empty**; the site renders `null` fields as "ask them directly".
+4. Pick or upload a photo. Uploads need `alt` text, and a `creditUrl` so the credit line works.
+5. Save. The public page is server-rendered, so the change appears on refresh.
+
+`order` controls where the row sits in the index.
+
+### Publishing the data files
+
+`npm run seed` also writes `public/data/organizations.json` (everything currently in the CMS,
+in the original snake_case schema) and copies `data/SOURCES.md`, which the footer links to.
+Re-run the seed after bulk edits if you want those files regenerated — or copy the same block
+from `src/scripts/seed.ts` into your own script.
+
+---
+
+## Motion & accessibility
+
+- **GSAP + ScrollTrigger + Lenis** (npm) drive the intro, reveals, parallax, the cursor photo
+  preview and smooth scrolling, all in `src/components/Motion.tsx`.
+- Everything is opt-out: with `prefers-reduced-motion: reduce` the component renders only the
+  scroll progress bar, and the page is complete and readable with JavaScript failing entirely.
+- WCAG AA contrast, visible focus rings, keyboard-operable filters and `<dialog>` detail view
+  (Esc and backdrop click close it, focus returns to the button that opened it).
+- Fonts are self-hosted by `next/font`: **Fraunces** (SOFT/WONK axes) and **IBM Plex** Sans/Mono.
+
+---
+
+## Deploying
+
+Any Node host works — the build is standard Next.js:
+
+```bash
+npm run build
+npm start          # serves .next on PORT (default 3000)
+```
+
+Environment variables: `DATABASE_URL`, `PAYLOAD_SECRET`, `NEXT_PUBLIC_SERVER_URL` (the public
+origin, used for admin links).
+
+- **Docker**: `Dockerfile` and `docker-compose.yml` are included; the SQLite file lives in the
+  container volume.
+- **Vercel / serverless**: the filesystem is ephemeral, so a SQLite file will be wiped on each
+  deploy. Switch the adapter to Postgres (`@payloadcms/db-postgres`, `DATABASE_URL=postgres://…`),
+  run the seed once against that database, and keep uploads in a storage adapter (S3/R2).
+- **Static export is not possible** for this build: the admin panel and the database need a
+  server. If you only need the read-only site, the original static build in `static-legacy/`
+  still deploys to GitHub Pages as-is.
+
+---
+
+## The original static build
+
+`static-legacy/` is the same content and design as a single-folder static site — no build step,
+no dependencies, works from `file://`:
+
+```bash
+start static-legacy/index.html     # or just double-click it
+```
+
+Its README documents that version in detail (art direction, adding an organization by editing
+JSON, GitHub Pages deployment, and the vendored copy of GSAP + Lenis).
+
+---
+
+## Sources & honesty rules
+
+Every listing links to the source it was verified against; `data/SOURCES.md` records those
+sources plus the candidates that were **rejected** (dead pages, unverifiable hosts, wildlife
+tourism venues) and why. Nothing in the directory is invented: an unverifiable field is `null`,
+never a guess.
+
+Photographs belong to the organizations shown, are credited where they appear, and can be
+removed on request.
+
+---
+
+## Credits
+
+- Type: [Fraunces](https://github.com/undercasetype/Fraunces) (OFL) and
+  [IBM Plex](https://github.com/IBM/plex) (OFL)
+- Motion: [GSAP](https://gsap.com/licensing/) and [Lenis](https://github.com/darkroomengineering/lenis)
+- Framework: [Payload CMS](https://payloadcms.com/) 3 + [Next.js](https://nextjs.org/) 16
