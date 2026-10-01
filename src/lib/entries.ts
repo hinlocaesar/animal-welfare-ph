@@ -1,7 +1,7 @@
 import type { Organization, Photo } from '@/payload-types'
 
 /**
- * The shape the directory UI expects — deliberately identical to the old static
+ * The shape the directory UI expects, deliberately identical to the old static
  * build so the CSS and the markup stay a straight port.
  */
 export interface EntryPhoto {
@@ -93,7 +93,7 @@ export function serializeOrg(doc: Organization): Entry {
 }
 
 export function formatDate(iso: string | null): string {
-  if (!iso) return '—'
+  if (!iso) return 'not yet recorded'
   const parts = String(iso).split('-')
   if (parts.length !== 3) return iso
   const months = [
@@ -105,7 +105,7 @@ export function formatDate(iso: string | null): string {
   return `${months[month]} ${parseInt(parts[2], 10)}, ${parts[0]}`
 }
 
-/** Only http(s) links are ever rendered as links — no mailto:, no javascript:. */
+/** Only http(s) links are ever rendered as links; no mailto:, no javascript:. */
 export function isSafeUrl(url: string | null | undefined): url is string {
   if (!url) return false
   try {

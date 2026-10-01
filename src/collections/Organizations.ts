@@ -5,14 +5,14 @@ import type { CollectionConfig } from 'payload'
  *
  * Everything a visitor needs to decide whether to reach out lives here, plus the
  * source URL that proves the entry was checked. Unknown values are left empty
- * rather than guessed — the admin UI should never be used to invent a contact.
+ * rather than guessed. The admin UI should never be used to invent a contact.
  */
 export const Organizations: CollectionConfig = {
   slug: 'organizations',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'region', 'city', 'category', 'lastVerified'],
-    description: 'A verified volunteer opportunity. sourceUrl is required — it is the page the listing was checked against.',
+    description: 'A verified volunteer opportunity. sourceUrl is required: it is the page the listing was checked against.',
   },
   access: {
     // Public read: this data is published on the site anyway.
@@ -26,7 +26,7 @@ export const Organizations: CollectionConfig = {
       index: true,
       admin: {
         position: 'sidebar',
-        description: 'Sort order of the row in the directory (1–43).',
+        description: 'Sort order of the row in the directory (1-43).',
       },
     },
     {
@@ -136,7 +136,7 @@ export const Organizations: CollectionConfig = {
     {
       name: 'email',
       type: 'email',
-      admin: { description: 'Only a published address — never guess one.' },
+      admin: { description: 'Only a published address, never a guessed one.' },
     },
     {
       name: 'sourceUrl',

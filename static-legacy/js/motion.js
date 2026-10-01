@@ -1,5 +1,5 @@
 /* ============================================================
-   Paws & Hearts PH — motion.js
+   Paws & Hearts PH, motion.js
    GSAP + ScrollTrigger + Lenis (all vendored in js/vendor/).
    Everything degrades gracefully: if a library is missing, or the
    visitor prefers reduced motion, the page is simply static and
@@ -32,7 +32,7 @@
   paint();
 
   /* ---------------------------------------------------------
-     Counters — count up when a stat scrolls into view
+     Counters, count up when a stat scrolls into view
      --------------------------------------------------------- */
   function countUp(node) {
     var raw = (node.textContent || '').replace(/[^\d]/g, '');
@@ -137,7 +137,7 @@
 
   /* ---------------------------------------------------------
      From here on: real animation. Bail out when motion is off
-     or GSAP failed to load — the page is already complete.
+     or GSAP failed to load, so the page is already complete.
      --------------------------------------------------------- */
   if (reduced) return;
   if (typeof window.gsap === 'undefined') return;

@@ -1,11 +1,11 @@
 # Paws & Hearts PH 🐾
 
-> **Archived copy.** The site now runs on Payload CMS + Next.js — see the
+> **Archived copy.** The site now runs on Payload CMS + Next.js; see the
 > [root README](../README.md). This folder keeps the original dependency-free static build
 > (it is also what `npm run seed` imports its listings and photographs from).
 
 A curated, hand-verified static directory of places in the Philippines where you can
-volunteer to help animals — shelters, rescues, wildlife and marine conservation programs,
+volunteer to help animals: shelters, rescues, wildlife and marine conservation programs,
 farm sanctuaries, and spay/neuter drives across **Luzon, Visayas and Mindanao**.
 
 No framework. No build step. No backend. No database.
@@ -17,7 +17,7 @@ No framework. No build step. No backend. No database.
 Just double-click **`index.html`**. It works straight from the file system (`file://`).
 
 There is no server, no install, and no `npm install`. The listing data is loaded with a
-plain `<script>` tag precisely so that `fetch()` is never needed — `fetch()` of a local
+plain `<script>` tag precisely so that `fetch()` is never needed, because `fetch()` of a local
 JSON file is blocked by browsers on `file://`.
 
 ```
@@ -47,7 +47,7 @@ index.html
 4. Wait ~1 minute. The site appears at
    `https://<your-username>.github.io/<repo-name>/`.
 
-Nothing needs to be built — GitHub Pages serves the files exactly as they are.
+Nothing needs to be built; GitHub Pages serves the files exactly as they are.
 
 ### Netlify
 
@@ -63,11 +63,11 @@ Upload the folder as-is. Every path in the project is relative
 
 ## How to add a new organization
 
-**Step 1 — verify it first.** Find the organization's official website or official
+**Step 1: verify it first.** Find the organization's official website or official
 Facebook page. Confirm it exists and is active. If you cannot find a primary source,
 do not add it. Never invent a name, URL, email address or phone number.
 
-**Step 2 — open `data/organizations.json`** and append an object to the array:
+**Step 2: open `data/organizations.json`** and append an object to the array:
 
 ```json
 {
@@ -98,7 +98,7 @@ do not add it. Never invent a name, URL, email address or phone number.
 }
 ```
 
-`photo` is optional — use `null` when the organization has no image you can legitimately
+`photo` is optional: use `null` when the organization has no image you can legitimately
 use, and the row falls back to its category icon.
 
 **Field rules**
@@ -109,16 +109,16 @@ use, and the row falls back to its category icon.
 | `category` | `dogs-cats`, `wildlife`, `marine`, `farm`, `drives`, `mixed` |
 | `region` | `Luzon`, `Visayas`, `Mindanao` |
 | `animals` | short lowercase labels, e.g. `dogs`, `cats`, `sea turtles`, `Philippine eagle` |
-| `email` | a real address, or `null` — never a guessed one |
+| `email` | a real address, or `null`; never a guessed one |
 | `website` / `facebook` | a real `https://` URL, or `""` if unknown |
-| `source_url` | **required** — the URL where you verified the entry |
+| `source_url` | **required**: the URL where you verified the entry |
 | `last_verified` | `YYYY-MM-DD` |
-| `photo` | an object with `thumb`, `large`, `width`, `height`, `credit_url`, `credit_label` — or `null` |
+| `photo` | an object with `thumb`, `large`, `width`, `height`, `credit_url`, `credit_label`; or `null` |
 
 Unknown fields should be `null` (email) or `""` (other strings) rather than fabricated.
 Any field that is not a usable `https://` link is simply not rendered as a button by the UI.
 
-**Step 3 — copy the exact same object into `data/organizations.js`** so the array in
+**Step 3: copy the exact same object into `data/organizations.js`** so the array in
 `window.ORGANIZATIONS` matches. Keep the two files identical:
 
 ```js
@@ -128,13 +128,13 @@ window.ORGANIZATIONS = [
 ];
 ```
 
-**Step 4 — add the source** to `data/SOURCES.md`, and set `last_verified` to today.
+**Step 4: add the source** to `data/SOURCES.md`, and set `last_verified` to today.
 
-**Step 5 — check it.** Open `index.html`, confirm the row appears, the filters find it,
+**Step 5: check it.** Open `index.html`, confirm the row appears, the filters find it,
 and the detail dialog opens.
 
 > Ordering, counts, the hero statistics, the "animals" dropdown, and the footer
-> "last updated" date are all derived automatically from the data — there is nothing
+> "last updated" date are all derived automatically from the data, so there is nothing
 > else to update.
 
 ---
@@ -142,23 +142,23 @@ and the detail dialog opens.
 ## Photos
 
 Every listing that shows a photo uses an **official image from that organization's own
-Facebook page or website** — profile photos, cover photos, or the site's `og:image`.
+Facebook page or website**: profile photos, cover photos, or the site's `og:image`.
 They were downloaded once, resized, and are served from `img/` so nothing is hotlinked:
 
 | File | Size | Used for |
 | --- | --- | --- |
 | `img/<id>.jpg` | 400 × 400 square | directory entry thumbnail |
 | `img/<id>-lg.jpg` | max 1200 px wide | detail dialog, hero, tips strip |
-| `img/photos.json` | — | machine-readable index of what came from where |
+| `img/photos.json` | n/a | machine-readable index of what came from where |
 
 **Attribution.** Each photo is credited where it appears (dialog caption, tips strip,
 about panel) and links back to the page it came from. Photos remain © their owners and
-can be removed on request — delete the two files for that `id`, set `"photo": null` in
+can be removed on request: delete the two files for that `id`, set `"photo": null` in
 `data/organizations.json` + `data/organizations.js`, and the UI falls back to the SVG
 category icon with no other change.
 
 **Replacing a photo:** drop a better image over `img/<id>.jpg` / `img/<id>-lg.jpg` and
-update `width`/`height` in the entry. Keep `width` and `height` accurate — they prevent
+update `width`/`height` in the entry. Keep `width` and `height` accurate, because they prevent
 layout shift while the image loads.
 
 **One listing has no photo:** `moalboal-animal-welfare-organization` has neither a
@@ -172,30 +172,30 @@ The site is designed as a **warm, cinematic night page with a playful streak**: 
 photograph of real volunteers behind the headline, a pile of tilted photo cards with tape
 strips, a scrolling ticker of regions and animals, and colour-coded dots on every listing.
 
-- **Palette** — warm charcoal (`#121110`), cream text (`#F7F2E8`), one gold accent
+- **Palette**: warm charcoal (`#121110`), cream text (`#F7F2E8`), one gold accent
   (`#FFC24D`) for headings, links, buttons and the scroll rail, with coral, mint, sky and
   lilac used *only* as category codes (dogs & cats, farm, marine, wildlife, drives).
   Everything is a CSS custom property under `:root` in `css/styles.css`, and every
-  text/background pair was tuned for WCAG AA — Lighthouse accessibility scores **100**.
-- **Typography** — [Fraunces](https://fonts.google.com/specimen/Fraunces) as a variable font
+  text/background pair was tuned for WCAG AA, and Lighthouse accessibility scores **100**.
+- **Typography**: [Fraunces](https://fonts.google.com/specimen/Fraunces) as a variable font
   with its `SOFT` and `WONK` axes enabled, so display headings carry a slightly wonky,
   friendly personality and italic accent words (`animals`, `responsibly`) turn gold;
   [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for body text and
   [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) for labels, counts and
   captions, loaded from Google Fonts with system fallbacks so the site still renders offline.
-- **Layout** — full-height hero with a copy/photo-stack split, a masked ticker band, then the
-  43 listings as numbered rows (01–43) with hairline rules, thumbnails and colour-coded tags
+- **Layout**: full-height hero with a copy/photo-stack split, a masked ticker band, then the
+  43 listings as numbered rows (01-43) with hairline rules, thumbnails and colour-coded tags
   rather than a grid of identical cards. A two-column responsible-volunteering list, a plate
   strip of photographs, an about panel and a colophon footer follow.
-- **Photography and illustrations** — every icon and the favicon are inline SVG (gold paw on
+- **Photography and illustrations**: every icon and the favicon are inline SVG (gold paw on
   a charcoal tile). The only raster assets are the organization photos in `img/` (see
   **Photos** above), stored locally, so the site makes **no external image requests**.
-- **Motion** — scroll-linked and playful rather than decorative: a word-by-word headline
+- **Motion**: scroll-linked and playful rather than decorative: a word-by-word headline
   reveal, slow hero parallax, a pointer tilt on the photo pile, staggered section reveals,
   counting statistics, the ticker, and a polaroid that trails the cursor while you hover the
   index. Everything lives in `js/motion.js` and is skipped entirely under
   `prefers-reduced-motion: reduce`.
-- **Accessibility** — semantic landmarks, a skip link, visible focus rings, labelled form
+- **Accessibility**: semantic landmarks, a skip link, visible focus rings, labelled form
   controls, `aria-live` result counts, a native `<dialog>` with focus handling, and full
   keyboard operation.
 
@@ -220,7 +220,7 @@ drop a newer build over the same filename.
 - Search box plus **region**, **organization type** and **animal** filters.
 - Live result count and a friendly empty state with a reset button.
 - Filter state is written to the **URL hash** (`#q=turtle&region=Visayas`) so a filtered
-  view can be shared or bookmarked — including from `file://`, where `history.replaceState`
+  view can be shared or bookmarked, including from `file://`, where `history.replaceState`
   with a query string is blocked.
 - Native `<dialog>` detail view per organization with description, activities,
   requirements and contact links.
@@ -232,7 +232,7 @@ drop a newer build over the same filename.
 Listing data was gathered from public web sources and recorded in
 [`data/SOURCES.md`](data/SOURCES.md). This is an independent directory, is not affiliated
 with or endorsed by any organization listed, and **makes no claim that an opportunity is
-currently open** — programs pause, pages move, and requirements change.
+currently open**. Programs pause, pages move, and requirements change.
 
 **Always confirm details directly with the organization** before you travel, donate or
 commit your time.

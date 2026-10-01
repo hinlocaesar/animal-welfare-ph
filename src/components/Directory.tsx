@@ -12,7 +12,7 @@ import {
 import { Icon } from '@/components/Sprite'
 
 /* ------------------------------------------------------------------
-   Filter state — kept in the URL hash so a filtered view is a link.
+   Filter state, kept in the URL hash so a filtered view is a link.
    (A query string would fight Next's router; the hash never does.)
    ------------------------------------------------------------------ */
 
@@ -53,7 +53,7 @@ function writeHash(filters: Filters): void {
     const base = window.location.pathname + window.location.search
     window.history.replaceState(null, '', `${base}${hash}`)
   } catch {
-    /* some environments block replaceState — the filters still work */
+    /* some environments block replaceState; the filters still work */
   }
 }
 
@@ -166,7 +166,7 @@ function Row({
 
         <p className="entry-animals">
           <strong>Animals</strong>
-          {' — '}
+          {': '}
           {names.join(', ')}
           {org.animals.length > 5 ? ` · +${org.animals.length - 5} more` : ''}
         </p>
@@ -390,7 +390,7 @@ function OrgDialog({ entry, onClose }: { entry: Entry | null; onClose: () => voi
               <Section title="Requirements" icon="i-check">
                 <p>
                   {entry.requirements ||
-                    'Not specified — ask the organization directly when you reach out.'}
+                    'Not specified. Ask the organization directly when you reach out.'}
                 </p>
               </Section>
 
@@ -398,7 +398,7 @@ function OrgDialog({ entry, onClose }: { entry: Entry | null; onClose: () => voi
                 <div className="d-contacts">
                   {contactRows.length
                     ? contactRows.map((row) => <Contact key={row.label} {...row} />)
-                    : <span className="is-null">No verified contact link — use the source below.</span>}
+                    : <span className="is-null">No verified contact link. Use the source below.</span>}
                 </div>
               </Section>
 
@@ -443,7 +443,7 @@ export function Directory({ entries }: { entries: Entry[] }) {
   /* React to hash changes made elsewhere: a shared link opened over the
      current page, back/forward, or a hand-edited address. Our own writes use
      replaceState, which never fires this event, so there is no loop. Plain
-     anchors (no `=`) are ignored — the browser scrolls those natively. */
+     anchors (no `=`) are ignored; the browser scrolls those natively. */
   useEffect(() => {
     const onHashChange = () => {
       const params = readHash()
@@ -613,7 +613,7 @@ export function Directory({ entries }: { entries: Entry[] }) {
           <>
             <p className="empty-title">No entries match those filters.</p>
             <p>
-              Try a wider region, or clear the search box — there are {entries.length} listings in
+              Try a wider region, or clear the search box. There are {entries.length} listings in
               total.
             </p>
             <button

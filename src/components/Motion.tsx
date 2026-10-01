@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 
 /**
- * The motion layer — a React port of the static build's motion.js.
+ * The motion layer, a React port of the static build's motion.js.
  *
  * Two rules:
  *   1. The page is complete and readable without it: nothing here hides content
@@ -205,7 +205,7 @@ export function Motion() {
         lenis?.raf(time * 1000)
       }
 
-      /* Split the headline into words for the intro — and remember the
+      /* Split the headline into words for the intro, and remember the
          original markup so a remount (Strict Mode) can start over. */
       const title = document.querySelector<HTMLElement>('[data-split]')
       const originalTitle = title ? title.innerHTML : null

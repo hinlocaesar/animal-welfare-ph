@@ -71,8 +71,16 @@ export async function Footer() {
         <div className="footer-col footer-note">
           <h2 className="footer-h">Please note</h2>
           <p>
-            Listings are collected from public sources and were last checked on{' '}
-            <strong id="footer-updated">{formatDate(updated)}</strong>.{' '}
+            {updated ? (
+              <>
+                Listings are collected from public sources and were last checked on{' '}
+                <strong id="footer-updated">{formatDate(updated)}</strong>.{' '}
+              </>
+            ) : (
+              <>
+                Listings are collected from public sources and re-checked as they change.{' '}
+              </>
+            )}
             <strong>Always confirm opportunities directly with each organization</strong> before
             visiting, donating or committing your time.
           </p>

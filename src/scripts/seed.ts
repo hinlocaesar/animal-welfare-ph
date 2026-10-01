@@ -4,15 +4,15 @@
  *   npm run seed
  *
  * Sources:
- *   - static-legacy/data/organizations.json — the 43 verified listings
- *   - static-legacy/img/<id>-lg.jpg         — the official photographs
+ *   - static-legacy/data/organizations.json: the 43 verified listings
+ *   - static-legacy/img/<id>-lg.jpg: the official photographs
  *
  * It is idempotent: listings are matched on their slug, photographs on their
  * filename, and an admin user is only created when there is none. It also
  * publishes public/data/ so the footer's "Raw JSON" and "Every source" links
  * work in the Next.js build.
  */
-/* Load .env first — payload.config reads it during import. */
+/* Load .env first, because payload.config reads it during import. */
 import 'dotenv/config'
 
 import fs from 'node:fs/promises'
@@ -112,7 +112,7 @@ async function main(): Promise<void> {
       const created = await payload.create({
         collection: 'photos',
         data: {
-          alt: `${org.name} — official photograph`,
+          alt: `${org.name}, official photograph`,
           creditUrl: org.photo?.credit_url || undefined,
           creditLabel: org.photo?.credit_label || 'official page',
         },

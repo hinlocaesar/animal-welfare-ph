@@ -59,8 +59,8 @@ export function Hero({
 
           <p className="standfirst">
             Shelters, rescues, sanctuaries, marine and wildlife programs across three island
-            regions — every listing checked against an official website or official Facebook page
-            before publication, with the source linked on the entry itself.
+            regions. Every listing is checked against an official website or official Facebook
+            page before publication, with the source linked on the entry itself.
           </p>
 
           <div className="lead-actions">

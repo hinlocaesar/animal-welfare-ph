@@ -1,12 +1,12 @@
 # Paws & Hearts PH
 
-A hand-verified directory of animal volunteer opportunities in the Philippines — shelters,
+A hand-verified directory of animal volunteer opportunities in the Philippines: shelters,
 rescues, sanctuaries and conservation programs across Luzon, Visayas and Mindanao, each listing
 checked against an official website or official Facebook page before publication.
 
 This repository runs as a **Payload CMS + Next.js** application:
 
-- **Content lives in the database** — edit it at `/admin`, no code changes needed.
+- **Content lives in the database**: edit it at `/admin`, no code changes needed.
 - **The public site is server-rendered** from that database, with the same dark, playful
   cinematic design as the original static build.
 - **`static-legacy/`** keeps the original dependency-free static site (plain HTML/CSS/JS),
@@ -36,7 +36,7 @@ SEED_ADMIN_PASSWORD=choose-a-password       # use something else, seriously
 
 Copy `.env.example` to `.env` if you have not already (it also holds `DATABASE_URL` and
 `PAYLOAD_SECRET`). The password is stored only in your local database, and the seed will not
-overwrite an existing user — to change it later, either edit the user in `/admin` → Users or
+overwrite an existing user; to change it later, either edit the user in `/admin` → Users or
 delete the user and seed again.
 
 ---
@@ -44,7 +44,7 @@ delete the user and seed again.
 ## How it fits together
 
 ```
-static-legacy/            the original static build — source of truth for the research
+static-legacy/            the original static build: source of truth for the research
   data/organizations.json   43 verified listings (the seed reads this)
   data/SOURCES.md           every source URL and every rejection, with reasons
   img/                      official photographs (the seed uploads these)
@@ -81,7 +81,7 @@ payload.db                 the SQLite database (gitignored, rebuilt by the seed)
 
 ## The data model
 
-**`organizations`** — one volunteer opportunity.
+**`organizations`**: one volunteer opportunity.
 
 | Field | Notes |
 | --- | --- |
@@ -92,24 +92,24 @@ payload.db                 the SQLite database (gitignored, rebuilt by the seed)
 | `animals[]` | Short lowercase labels, e.g. `sea turtles` |
 | `description` | Two or three sentences |
 | `volunteerActivities[]`, `howToJoin`, `requirements` | What volunteers do and what is asked of them |
-| `website`, `facebook`, `email` | Only verified contacts — never guess an address |
+| `website`, `facebook`, `email` | Only verified contacts, never a guessed address |
 | `sourceUrl` | **Required.** The official page the listing was checked against |
 | `lastVerified` | **Required.** `YYYY-MM-DD` of the last check |
 | `photo` | Relationship to a photograph in the `photos` collection |
 | `order` | Row order in the directory (sidebar field) |
 
-**`photos`** — official images. Files are stored in `media/` (gitignored) and served at
+**`photos`**: official images. Files are stored in `media/` (gitignored) and served at
 `/api/media/file/<filename>`. Payload generates the 400×400 thumbnail each directory row uses;
 the original is what the detail dialog and the hero show. `creditUrl` / `creditLabel` power the
 "photo from the org's …" credit line wherever the image appears.
 
-**`users`** — admin accounts (Payload auth).
+**`users`**: admin accounts (Payload auth).
 
 ### Adding an organization
 
 1. Sign in at `/admin` → **Organizations** → **Create new**.
-2. Fill in `name`, `slug`, `category`, `region`, `description`, `sourceUrl` and `lastVerified`
-   — the last two are required on purpose: a listing without a source is not a verified listing.
+2. Fill in `name`, `slug`, `category`, `region`, `description`, `sourceUrl` and `lastVerified`.
+   The last two are required on purpose: a listing without a source is not a verified listing.
 3. Add `animals`, `volunteerActivities` and the contact links you can actually verify. Leave
    anything you cannot verify **empty**; the site renders `null` fields as "ask them directly".
 4. Pick or upload a photo. Uploads need `alt` text, and a `creditUrl` so the credit line works.
@@ -121,7 +121,7 @@ the original is what the detail dialog and the hero show. `creditUrl` / `creditL
 
 `npm run seed` also writes `public/data/organizations.json` (everything currently in the CMS,
 in the original snake_case schema) and copies `data/SOURCES.md`, which the footer links to.
-Re-run the seed after bulk edits if you want those files regenerated — or copy the same block
+Re-run the seed after bulk edits if you want those files regenerated, or copy the same block
 from `src/scripts/seed.ts` into your own script.
 
 ---
@@ -140,7 +140,7 @@ from `src/scripts/seed.ts` into your own script.
 
 ## Deploying
 
-Any Node host works — the build is standard Next.js:
+Any Node host works, because the build is standard Next.js:
 
 ```bash
 npm run build
@@ -163,8 +163,8 @@ origin, used for admin links).
 
 ## The original static build
 
-`static-legacy/` is the same content and design as a single-folder static site — no build step,
-no dependencies, works from `file://`:
+`static-legacy/` is the same content and design as a single-folder static site, with no build
+step, no dependencies, and support for `file://`:
 
 ```bash
 start static-legacy/index.html     # or just double-click it

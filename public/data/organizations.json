@@ -139,7 +139,7 @@
   },
   {
     "id": "ivhq-animal-care-palawan",
-    "name": "IVHQ — Animal Care in Palawan",
+    "name": "IVHQ: Animal Care in Palawan",
     "category": "dogs-cats",
     "animals": [
       "dogs",
@@ -155,8 +155,8 @@
       "enrichment and general animal care",
       "promoting responsible pet ownership in the community"
     ],
-    "how_to_join": "Apply online through IVHQ, pay the registration fee to secure your place, then pick a start date — programs begin every Monday.",
-    "requirements": "Volunteers must be aged 17 or older (families accepted), commit to 3–5 hours a day for 1 to 24 weeks, and pay program fees starting from USD 390 per week.",
+    "how_to_join": "Apply online through IVHQ, pay the registration fee to secure your place, then pick a start date. Programs begin every Monday.",
+    "requirements": "Volunteers must be aged 17 or older (families accepted), commit to 3-5 hours a day for 1 to 24 weeks, and pay program fees starting from USD 390 per week.",
     "website": "https://www.volunteerhq.org/destinations/philippines/animal-care-in-palawan/",
     "facebook": null,
     "email": null,
@@ -224,7 +224,7 @@
     "region": "Luzon",
     "city": "Subic Bay",
     "province": "Zambales",
-    "description": "WIN is a US-founded nonprofit registered in the Philippines with its headquarters in Subic Bay, Zambales, where it runs a wildlife rescue center and an animal care clinic. It takes in and rehabilitates confiscated and injured wildlife — including macaques, giant fruit bats, reptiles, sea turtles and marine mammals — while also caring for horses and companion animals. The group explicitly welcomes international volunteers and interns.",
+    "description": "WIN is a US-founded nonprofit registered in the Philippines with its headquarters in Subic Bay, Zambales, where it runs a wildlife rescue center and an animal care clinic. It takes in and rehabilitates confiscated and injured wildlife (including macaques, giant fruit bats, reptiles, sea turtles and marine mammals) while also caring for horses and companion animals. The group explicitly welcomes international volunteers and interns.",
     "volunteer_activities": [
       "preparing food, cleaning cages and enrichment for rescue animals",
       "joining rescue teams for sick or injured wildlife, turtles and marine mammals",
@@ -251,7 +251,7 @@
   },
   {
     "id": "bantay-pawikan-pawikan-conservation-center",
-    "name": "Bantay Pawikan, Inc. — Pawikan Conservation Center",
+    "name": "Bantay Pawikan, Inc.: Pawikan Conservation Center",
     "category": "marine",
     "animals": [
       "sea turtles"
@@ -259,7 +259,7 @@
     "region": "Luzon",
     "city": "Morong",
     "province": "Bataan",
-    "description": "Bantay Pawikan runs the Pawikan Conservation Center in Nagbalayong, Morong, a community-based hatchery and sanctuary that protects nesting sea turtles on Bataan's west coast. Its volunteers — many of them former egg collectors — patrol the beaches, transfer clutches to the hatchery and release hatchlings, and the center also hosts visitors and the annual Pawikan Festival.",
+    "description": "Bantay Pawikan runs the Pawikan Conservation Center in Nagbalayong, Morong, a community-based hatchery and sanctuary that protects nesting sea turtles on Bataan's west coast. Its volunteers, many of them former egg collectors, patrol the beaches, transfer clutches to the hatchery and release hatchlings, and the center also hosts visitors and the annual Pawikan Festival.",
     "volunteer_activities": [
       "night beach patrols for nesting turtles",
       "hatchery care and egg relocation",
@@ -380,7 +380,7 @@
       "logistics, animal handling and data entry for non-vet volunteers"
     ],
     "how_to_join": "Apply through the volunteer form on dogsmountain.org, choose one of the published two-week session dates, and secure your place with the required deposit before paying the program fee.",
-    "requirements": "Ages 18–55; proof of rabies vaccination within the past two years (or a titre within three months), current tetanus vaccination, and comprehensive travel insurance; licensed vets and nurses must supply copies of their licences, and a paid program fee applies.",
+    "requirements": "Ages 18-55; proof of rabies vaccination within the past two years (or a titre within three months), current tetanus vaccination, and comprehensive travel insurance; licensed vets and nurses must supply copies of their licences, and a paid program fee applies.",
     "website": "https://dogsmountain.org/",
     "facebook": "https://www.facebook.com/dogsmountainsanctuary/",
     "email": "info@dogsmountain.org",
@@ -415,7 +415,7 @@
       "voluntourism stays at the rescue center"
     ],
     "how_to_join": "Fill out the AKF Volunteers Recruitment Form linked from the contact page or message the page so the team can assign you to a volunteer group; orientation schedules are announced on their Facebook page.",
-    "requirements": "No specific requirements are stated — applicants simply complete the volunteer recruitment form, and their orientation posts say no experience is needed.",
+    "requirements": "No specific requirements are stated. Applicants simply complete the volunteer recruitment form, and their orientation posts say no experience is needed.",
     "website": "https://www.akfrescues.org/",
     "facebook": "https://www.facebook.com/AKFanimalrescue",
     "email": "hello@akfrescues.org",
@@ -523,7 +523,7 @@
       "disaster relief rescue",
       "social media and office work"
     ],
-    "how_to_join": "Submit the volunteer application form on the PAWS website and attend a scheduled volunteer orientation — the next one listed is 10 October 2026 — then choose a volunteer team.",
+    "how_to_join": "Submit the volunteer application form on the PAWS website and attend a scheduled volunteer orientation (the next one listed is 10 October 2026), then choose a volunteer team.",
     "requirements": "Attend orientation and pay a P1,000 deposit (refunded after six consecutive months of at least 8 volunteer hours per month); pre-exposure rabies shots are required for direct animal care, and minors must attend with a parent or guardian.",
     "website": "https://paws.org.ph/",
     "facebook": "https://www.facebook.com/pawsphilippines",
@@ -654,7 +654,7 @@
     "region": "Visayas",
     "city": "Moalboal",
     "province": "Cebu",
-    "description": "The animal welfare group recognised by the Municipal Government of Moalboal as a partner in responsible tourism and animal care. Its sanctuary volunteering — feeding, walking and bonding with rescued cats and dogs — has become the second most-searched activity for visitors to the town on TripAdvisor.",
+    "description": "The animal welfare group recognised by the Municipal Government of Moalboal as a partner in responsible tourism and animal care. Its sanctuary volunteering (feeding, walking and bonding with rescued cats and dogs) has become the second most-searched activity for visitors to the town on TripAdvisor.",
     "volunteer_activities": [
       "feeding rescued cats and dogs",
       "walking and bonding with shelter animals",
@@ -706,7 +706,7 @@
   },
   {
     "id": "pawssion-project-bacolod",
-    "name": "Pawssion Project Foundation — Bacolod Shelter",
+    "name": "Pawssion Project Foundation: Bacolod Shelter",
     "category": "dogs-cats",
     "animals": [
       "dogs",
@@ -1001,7 +1001,7 @@
       "adoption and responsible pet ownership outreach",
       "fundraising and social media support"
     ],
-    "how_to_join": "Use the 'I want to Volunteer' link on their website or message their Facebook page — the group tells people they can help by volunteering at its shelter.",
+    "how_to_join": "Use the 'I want to Volunteer' link on their website or message their Facebook page. The group tells people they can help by volunteering at its shelter.",
     "requirements": null,
     "website": "https://ahfpgensan.wixsite.com/ahfp",
     "facebook": "https://www.facebook.com/aheartforpawsgensan",
@@ -1102,7 +1102,7 @@
       "transporting animals to safety or to adopters",
       "sharing rescue appeals"
     ],
-    "how_to_join": "Message the Facebook page or comment on one of its rescue posts saying you want to adopt or help — the group coordinates from there.",
+    "how_to_join": "Message the Facebook page or comment on one of its rescue posts saying you want to adopt or help. The group coordinates from there.",
     "requirements": null,
     "website": null,
     "facebook": "https://www.facebook.com/profile.php?id=61576051625236",
@@ -1299,7 +1299,7 @@
       "cleaning and daily shelter care"
     ],
     "how_to_join": "Go to the foundation's Get Involved page and use the Volunteer 'Get in touch' option, asking to be assigned to animal care at the Dog Home.",
-    "requirements": "The foundation says no special skills are required — just a willingness to show up.",
+    "requirements": "The foundation says no special skills are required, just a willingness to show up.",
     "website": "https://limketkaifoundation.org/programs/dog-home",
     "facebook": "https://www.facebook.com/profile.php?id=61586213766301",
     "email": null,
@@ -1332,7 +1332,7 @@
       "helping with shelter construction and maintenance",
       "sharing rescue and adoption appeals"
     ],
-    "how_to_join": "Send a message to the Facebook page — the group posts calls for volunteers alongside its donation appeals.",
+    "how_to_join": "Send a message to the Facebook page. The group posts calls for volunteers alongside its donation appeals.",
     "requirements": null,
     "website": null,
     "facebook": "https://www.facebook.com/profile.php?id=100064524199737",

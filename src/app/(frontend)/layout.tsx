@@ -10,7 +10,7 @@ import { Sprite } from '@/components/Sprite'
 import './globals.css'
 
 /* Variable fonts, self-hosted at build time. The SOFT/WONK axes give Fraunces
-   its soft, slightly wonky details — the "friendly" in the art direction. */
+   its soft, slightly wonky details, and with them the "friendly" in the art direction. */
 const display = Fraunces({
   subsets: ['latin'],
   axes: ['SOFT', 'WONK'],
@@ -36,7 +36,7 @@ const mono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Paws & Hearts PH — Animal Volunteer Opportunities in the Philippines',
+  title: 'Paws & Hearts PH: Animal Volunteer Opportunities in the Philippines',
   description:
     'A hand-verified directory of shelters, rescues, sanctuaries and conservation programs across Luzon, Visayas and Mindanao where you can volunteer to help animals.',
   applicationName: 'Paws & Hearts PH',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Paws & Hearts PH',
     locale: 'en_PH',
-    title: 'Paws & Hearts PH — Animal Volunteer Opportunities in the Philippines',
+    title: 'Paws & Hearts PH: Animal Volunteer Opportunities in the Philippines',
     description:
       'Shelters, rescues, sanctuaries and conservation programs across three island regions, each listing checked against an official source.',
   },

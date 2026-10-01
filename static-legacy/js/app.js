@@ -1,5 +1,5 @@
 /* ============================================================
-   Paws & Hearts PH — app.js
+   Paws & Hearts PH, app.js
    Vanilla JS: rendering, filtering, URL sync, detail dialog.
    Data comes from data/organizations.js → window.ORGANIZATIONS
    ============================================================ */
@@ -138,7 +138,7 @@
       var latest = DATA.reduce(function (acc, o) {
         return (o.last_verified && o.last_verified > acc) ? o.last_verified : acc;
       }, '');
-      updated.textContent = latest ? formatDate(latest) : '—';
+      updated.textContent = latest ? formatDate(latest) : 'not yet recorded';
     }
 
     /* contents line in the lead */
@@ -255,7 +255,7 @@
 
     var animals = el('p', 'entry-animals');
     animals.appendChild(el('strong', null, 'Animals'));
-    animals.appendChild(document.createTextNode(' — '));
+    animals.appendChild(document.createTextNode(': '));
     var names = (org.animals || []).slice(0, 5);
     names.forEach(function (a, i) {
       animals.appendChild(document.createTextNode((i ? ', ' : '') + a));
@@ -359,7 +359,7 @@
         window.location.hash = params.length ? params.join('&') : ' ';
       }
     } catch (e) {
-      /* file:// in some browsers blocks replaceState — fall back silently */
+      /* file:// in some browsers blocks replaceState; fall back silently */
       try {
         if (params.length) window.location.hash = params.join('&');
       } catch (e2) { /* give up quietly */ }
@@ -513,7 +513,7 @@
     /* requirements */
     dialogBody.appendChild(section('Requirements', 'i-check',
       org.requirements ? el('p', null, org.requirements)
-                       : el('p', null, 'Not specified — ask the organization directly when you reach out.')));
+                       : el('p', null, 'Not specified. Ask the organization directly when you reach out.')));
 
     /* contacts */
     var contacts = el('div', 'd-contacts');
@@ -530,7 +530,7 @@
     });
 
     if (!any) {
-      var span = el('span', 'is-null', 'No verified contact link — use the source below.');
+      var span = el('span', 'is-null', 'No verified contact link. Use the source below.');
       contacts.appendChild(span);
     }
     dialogBody.appendChild(section('Contact & links', 'i-globe', contacts));
@@ -615,7 +615,7 @@
       e.preventDefault();
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (window.__lenis) {
-        /* Lenis owns scrolling — hand the job to it */
+        /* Lenis owns scrolling; hand the job to it */
         window.__lenis.scrollTo(target, { offset: -84, duration: 1.15 });
       } else {
         target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
@@ -654,7 +654,7 @@
   window.addEventListener('hashchange', function () {
     if (writingHash) return;
     if (!restoreFromHash()) {
-      // A plain anchor was requested — let it scroll naturally.
+      // A plain anchor was requested, so let it scroll naturally.
       var raw = window.location.hash.slice(1);
       var target = raw && document.getElementById(raw);
       if (target) target.scrollIntoView({ block: 'start' });

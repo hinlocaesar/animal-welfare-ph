@@ -19,8 +19,8 @@ export const Photos: CollectionConfig = {
         name: 'thumb',
         width: 400,
         height: 400,
-        // sharp's default fit is 'cover' with a centre crop — the square thumbnail
-        // the directory uses beside each listing.
+        // sharp's default fit is 'cover' with a centre crop, giving the square
+        // thumbnail the directory uses beside each listing.
         withoutEnlargement: false,
       },
     ],
@@ -30,7 +30,7 @@ export const Photos: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
-      admin: { description: 'Describe the picture — shown to screen readers.' },
+      admin: { description: 'Describe the picture, as shown to screen readers.' },
     },
     {
       name: 'creditUrl',

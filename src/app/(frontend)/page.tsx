@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 
 /* ------------------------------------------------------------------
    Which photograph goes where. The files themselves live in the CMS
-   (the `photos` collection) — this is only the editorial selection.
+   (the `photos` collection); this is only the editorial selection.
    ------------------------------------------------------------------ */
 
 const HERO_FILE = {
@@ -92,7 +92,7 @@ const PRACTICES = [
     body: 'Photography, transport, spreadsheets, welding, fundraising, translation and weekend driving are all genuinely short on. Say what you’re good at when you apply.',
   },
   {
-    title: 'Adopt, foster, or donate — not just visit',
+    title: 'Adopt, foster, or donate, not just visit',
     body: "If you can't give time, fostering an animal or covering a vet bill is often worth more than a single afternoon. Every organization in this directory accepts more than one kind of help.",
   },
 ]
@@ -211,7 +211,7 @@ export default async function HomePage() {
       <section className="section" id="directory" aria-labelledby="directory-title">
         <div className="wrap">
           <header className="section-head" data-reveal="">
-            <p className="rail-label">01 — The directory</p>
+            <p className="rail-label">01: The directory</p>
             <h2 id="directory-title">Every listing we could verify</h2>
             <p className="section-sub">
               Search by name, city or animal, then narrow by region, type of work, or the animals
@@ -228,7 +228,7 @@ export default async function HomePage() {
       <section className="section section-glow" id="how-to" aria-labelledby="howto-title">
         <div className="wrap">
           <header className="section-head" data-reveal="">
-            <p className="rail-label">02 — Good practice</p>
+            <p className="rail-label">02: Good practice</p>
             <h2 id="howto-title">
               How to volunteer <em>responsibly</em>
             </h2>
@@ -252,7 +252,7 @@ export default async function HomePage() {
             ))}
           </ol>
 
-          <p className="rail-label strip-label">Plates — from the organizations themselves</p>
+          <p className="rail-label strip-label">Plates: from the organizations themselves</p>
           <ul className="photo-strip">
             {strip.map((item) => (
               <li key={item.file} data-reveal="">
@@ -287,11 +287,11 @@ export default async function HomePage() {
       <section className="section" id="about" aria-labelledby="about-title">
         <div className="wrap about-inner">
           <div className="about-copy" data-reveal="">
-            <p className="rail-label">03 — Method</p>
+            <p className="rail-label">03: Method</p>
             <h2 id="about-title">How this directory was built</h2>
             <p>
               Every organization here was found through public web research and confirmed against
-              an official website, an official Facebook page, or another primary source — that
+              an official website, an official Facebook page, or another primary source. That
               source is listed on each entry. Fields that could not be verified are left blank or{' '}
               <code>null</code> rather than guessed.
             </p>
@@ -301,7 +301,7 @@ export default async function HomePage() {
               your time.
             </p>
             <p>
-              Some candidates were deliberately left out — pages that had gone dark, phone-only
+              Some candidates were deliberately left out: pages that had gone dark, phone-only
               groups, hosts we could not confirm, and venues that let tourists handle wild
               animals. The rejections and the reasons are written down in <code>SOURCES.md</code>.
             </p>
@@ -329,18 +329,17 @@ export default async function HomePage() {
                     height={about.height}
                   />
                   <figcaption>
-                    People and the Sea, Cebu —
+                    People and the Sea, Cebu.{' '}
                     {about.photo.creditUrl ? (
                       <a
                         href={about.photo.creditUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {' '}
-                        photo: {about.photo.creditLabel || 'official Facebook page'} ↗
+                        Photo: {about.photo.creditLabel || 'official Facebook page'} ↗
                       </a>
                     ) : (
-                      ' photo: official Facebook page'
+                      'Photo: official Facebook page'
                     )}
                   </figcaption>
                 </>
@@ -349,7 +348,7 @@ export default async function HomePage() {
 
             <h3>What&apos;s in a listing</h3>
             <ul className="checklist">
-              <li>Where it is — region, city, province</li>
+              <li>Where it is: region, city, province</li>
               <li>What animals it works with</li>
               <li>Real volunteer activities</li>
               <li>How to actually join</li>

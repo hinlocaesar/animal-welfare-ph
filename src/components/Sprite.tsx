@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react'
 
 /**
- * Inline SVG sprite — every icon the site uses lives in one <defs> block so each
+ * Inline SVG sprite: every icon the site uses lives in one <defs> block so each
  * call site is a tiny <use href="#…"> reference. No icon font, no requests.
  */
 

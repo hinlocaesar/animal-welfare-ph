@@ -146,7 +146,7 @@ export interface User {
   collection: 'users';
 }
 /**
- * A verified volunteer opportunity. sourceUrl is required — it is the page the listing was checked against.
+ * A verified volunteer opportunity. sourceUrl is required: it is the page the listing was checked against.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "organizations".
@@ -154,7 +154,7 @@ export interface User {
 export interface Organization {
   id: number;
   /**
-   * Sort order of the row in the directory (1–43).
+   * Sort order of the row in the directory (1-43).
    */
   order?: number | null;
   /**
@@ -217,7 +217,7 @@ export interface Organization {
    */
   facebook?: string | null;
   /**
-   * Only a published address — never guess one.
+   * Only a published address, never a guessed one.
    */
   email?: string | null;
   /**
@@ -242,7 +242,7 @@ export interface Organization {
 export interface Photo {
   id: number;
   /**
-   * Describe the picture — shown to screen readers.
+   * Describe the picture, as shown to screen readers.
    */
   alt: string;
   /**

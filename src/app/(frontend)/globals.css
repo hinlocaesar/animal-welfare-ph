@@ -1,5 +1,5 @@
 /* ============================================================
-   Paws & Hearts PH — styles.css
+   Paws & Hearts PH, styles.css
    Dark, warm, playful cinematic directory.
    Fraunces (display, wonky) · IBM Plex Sans (text) · IBM Plex Mono (labels)
    GSAP + Lenis live in js/vendor and are driven by js/motion.js
@@ -70,7 +70,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* film grain — decorative, never interactive */
+/* film grain, decorative and never interactive */
 body::after {
   content: "";
   position: fixed;

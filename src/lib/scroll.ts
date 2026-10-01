@@ -2,7 +2,7 @@
  * In-page navigation.
  *
  * Lenis owns the scroll position while it is running (see Motion), so every
- * jump — nav, hero, footer, skip link — goes through here instead of the
+ * jump (nav, hero, footer, skip link) goes through here instead of the
  * browser's native anchor jump.
  */
 
